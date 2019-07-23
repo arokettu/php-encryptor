@@ -12,7 +12,10 @@
     "autoload": {
         "psr-4": {
             "SandFox\\Encryptor\\": "src"
-        }
+        },
+        "files": [
+            "src/polyfill.php"
+        ]
     },
     "require": {
         "php": "^7.2|^8.0",
