@@ -107,7 +107,7 @@ abstract class Base extends Command
             $question->setHidden(true);
             $question->setNormalizer('trim');
             $question->setValidator(function ($pwd) {
-                if (strlen($pwd > 0)) {
+                if (strlen($pwd) > 0) {
                     return $pwd;
                 }
 
