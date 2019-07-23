@@ -18,7 +18,7 @@ class Decrypt
     {
         $container = Bencode::decode($data);
 
-        if ($container['_a'] !== 'sandfoxenc' || $container['_v'] !== 1) {
+        if ($container['_a'] !== 'sfenc' || $container['_v'] !== 1) {
             throw new RuntimeException('File header is invalid');
         }
 

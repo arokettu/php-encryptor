@@ -18,7 +18,7 @@ class Encrypt
     public function encrypt(string $data, $secret)
     {
         $container = [
-            '_a' => 'sandfoxenc',
+            '_a' => 'sfenc',
             '_v' => 1,
         ];
 
