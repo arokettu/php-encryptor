@@ -1,0 +1,26 @@
+{
+    "name": "sandfoxme/encryptor",
+    "description": "CLI File Encryptor",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Anton Smirnov",
+            "email": "sandfox@sandfox.me"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "SandFox\\Encryptor\\": "src"
+        }
+    },
+    "require": {
+        "php": "^7.2|^8.0",
+        "ext-sodium": "*",
+        "sandfoxme/bencode": "^1.3",
+        "symfony/console": "^4.0"
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
