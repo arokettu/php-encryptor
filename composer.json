@@ -30,6 +30,8 @@
         "symfony/console": "^4.0"
     },
     "require-dev": {
+        "indeyets/pake": "^1.99",
+        "phpunit/phpunit": "^8.2",
         "secondtruth/phar-compiler": "^1.1"
     },
     "config": {
