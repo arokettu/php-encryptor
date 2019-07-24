@@ -1,0 +1,12 @@
+before_deploy:
+  - php make-phar.php
+deploy:
+  provider: releases
+  api_key:
+    secure: inYk4kYSktQ44G8ptwwS6/54GowSeWoYVU91xFjyzdxxCA2lazaX9AgdRBBeMtM76ZjsOJ4crWin6LlvC47QUhd1mJaQp0uTKW5WXvAVPBgurA8kWTitdka85wf86YQP8wZM4GISOwNOy10Fs6bhkOQtAh9ekwXITIAJ1GK3QilD69XRCw7eBujWxVaQZ2/ikYAaQypGrtGIT+A7FmegQAB9KOrwDvvFMbyG3pIpEsmeyqgumSiZzWprOCosUXF+opLR/QB81NgUqltiI/Nc8gCW/GYeCOisVBXTDSj+heAU0txL2xEWpsEQbIU7UXV5aEsN804+xugTpD5bXQXD31ig0NeR0l80yXr+SiecLiIzQXWJAcDtZnTShCqJm0WJch1EKPuoF4amb3zwA6zp5XG/B+5MsNnUoOaHwxAbP0/ZQoiVKjgW9qJBnqvN+cw9GLYN3aADOvjfV//J364X2tC4xiVcAzfLEBjpmg/3vbe19movh8C4PI3dKmpW7PGqTOgv7oqB8Udk94RPesQ9++oyRc9RgZFC8/7R0W2c01fcSL4ewp8W5Tu7VkB3BOSQ/+a2FngV80/EdceQ6arFEh4FEGqCDkvXXBT2LsB/VnVM2LeP9a7TvQTamoToDZkYhbI0pnJcS0hqEXF0CmpMd8r4/q/8rV6YPxg94jEBj4o=
+  file: build/encryptor.phar
+  skip_cleanup: true
+  draft: true
+  on:
+    repo: sandfoxme/php-encryptor
+    tags: true
