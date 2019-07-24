@@ -1,6 +1,9 @@
 {
     "name": "sandfoxme/encryptor",
     "description": "CLI File Encryptor",
+    "keywords": [
+        "php", "encryption", "sodium"
+    ],
     "type": "project",
     "license": "MIT",
     "authors": [
