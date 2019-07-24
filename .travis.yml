@@ -1,7 +1,8 @@
-stages:
-  - deploy
+language: php
 php:
   - '7.2'
+stages:
+  - deploy
 before_deploy:
   - php make-phar.php
 deploy:
