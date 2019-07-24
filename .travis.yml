@@ -1,4 +1,7 @@
-language: php
+stages:
+  - deploy
+php:
+  - '7.2'
 before_deploy:
   - php make-phar.php
 deploy:
@@ -11,4 +14,4 @@ deploy:
   on:
     repo: sandfoxme/php-encryptor
     tags: true
-    php: 7.2
+    php: '7.2'
