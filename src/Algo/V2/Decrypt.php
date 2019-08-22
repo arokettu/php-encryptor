@@ -4,6 +4,7 @@ namespace SandFox\Encryptor\Algo\V2;
 
 use RuntimeException;
 use SandFox\Bencode\Bencode;
+use SandFox\Encryptor\Algo\V1\Decrypt as DecryptV1;
 use SandFox\Encryptor\Secret\Key;
 use SandFox\Encryptor\Secret\Password;
 
@@ -20,8 +21,24 @@ class Decrypt
     {
         $container = Bencode::decode($data);
 
-        if ($container['_a'] !== 'sfenc' || $container['_v'] !== self::VERSION) {
+        return $this->decryptContainer($container, $secret);
+    }
+
+    public function decryptContainer(array $container, $secret)
+    {
+        if ($container['_a'] !== 'sfenc') {
             throw new RuntimeException('File header is invalid');
+        }
+
+        if ($container['_v'] !== self::VERSION) {
+            switch ($container['_v']) {
+                case 1:
+                    // Fall back to v1
+                    return (new DecryptV1())->decryptContainer($container, $secret);
+
+                default:
+                    throw new RuntimeException('File version is unsupported');
+            }
         }
 
         if ($secret instanceof Password) {

@@ -13,7 +13,8 @@ class Password
 
     public const STRENGTH_DEFAULT   = self::STRENGTH_MODERATE;
 
-    protected const DEFAULT_ALG = SODIUM_CRYPTO_PWHASH_ALG_ARGON2ID13;
+    protected const ALG_V1 = SODIUM_CRYPTO_PWHASH_ALG_ARGON2I13;
+    protected const ALG_V2 = SODIUM_CRYPTO_PWHASH_ALG_ARGON2ID13;
 
     private $password;
     private $salt;
@@ -97,7 +98,27 @@ class Password
             $this->salt,
             $this->getOpslimit(),
             $this->getMemlimit(),
-            self::DEFAULT_ALG
+            self::ALG_V2
+        );
+    }
+
+    public function getKeyV1(): string
+    {
+        if ($this->salt === null) {
+            throw new LogicException('Cannot produce key without salt');
+        }
+
+        if (strlen($this->salt) !== SODIUM_CRYPTO_PWHASH_SALTBYTES) {
+            throw new LogicException('Incorrect salt length');
+        }
+
+        return sodium_crypto_pwhash(
+            SODIUM_CRYPTO_SECRETBOX_KEYBYTES,
+            $this->password,
+            $this->salt,
+            SODIUM_CRYPTO_PWHASH_OPSLIMIT_SENSITIVE,    // 8
+            SODIUM_CRYPTO_PWHASH_MEMLIMIT_SENSITIVE,   // 536'870'912
+            self::ALG_V1
         );
     }
 }

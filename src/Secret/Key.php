@@ -23,8 +23,13 @@ class Key
         $this->key = $key;
     }
 
-    public function getKeyV1(): string
+    public function getKeyV2(): string
     {
         return $this->key;
+    }
+
+    public function getKeyV1(): string
+    {
+        return $this->getKeyV2();
     }
 }
