@@ -24,14 +24,33 @@ abstract class Base extends Command
     {
         $this->addArgument('input', InputArgument::OPTIONAL, 'Input file (stdin if omitted)');
 
-        $this->addOption('output',      'o',    InputOption::VALUE_REQUIRED,
-            'Output file (derived from input file name if omitted, stdout if stdin)');
-        $this->addOption('stdout',      null,   InputOption::VALUE_NONE,
-            'Force output into stdout');
-        $this->addOption('key',         'k',    InputOption::VALUE_REQUIRED,
-            sprintf('Encryption key, hex-encoded %d byte length key. More secure option than a password', SODIUM_CRYPTO_SECRETBOX_KEYBYTES));
-        $this->addOption('password',    'p',    InputOption::VALUE_REQUIRED,
-            'Encryption password. If neither key nor password are provided, the program will ask for a password');
+        $this->addOption(
+            'output',
+            'o',
+            InputOption::VALUE_REQUIRED,
+            'Output file (derived from input file name if omitted, stdout if stdin)'
+        );
+        $this->addOption(
+            'stdout',
+            null,
+            InputOption::VALUE_NONE,
+            'Force output into stdout'
+        );
+        $this->addOption(
+            'key',
+            'k',
+            InputOption::VALUE_REQUIRED,
+            sprintf(
+                'Encryption key, hex-encoded %d byte length key. More secure option than a password',
+                SODIUM_CRYPTO_SECRETBOX_KEYBYTES
+            )
+        );
+        $this->addOption(
+            'password',
+            'p',
+            InputOption::VALUE_REQUIRED,
+            'Encryption password. If neither key nor password are provided, the program will ask for a password'
+        );
     }
 
     protected function getInputFileName(InputInterface $input): string

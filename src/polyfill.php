@@ -19,4 +19,3 @@ if (!function_exists('str_ends_with_ci')) {
         return str_ends_with(strtolower($haystack), strtolower($needle));
     }
 }
-
