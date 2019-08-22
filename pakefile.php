@@ -1,40 +1,58 @@
 <?php
 
+// @codingStandardsIgnoreFile
+
 use Secondtruth\Compiler\Compiler;
 
 pake_desc('Build phar');
 pake_task('build');
-
+/**
+ * @throws pakeException
+ */
 function run_build()
 {
-if (!is_dir(__DIR__ . '/build')) {
-    mkdir(__DIR__ . '/build');
-}
+    pake_echo('Creating build directory');
 
-$version = trim(`git describe --tags`);
+    $buildDir = __DIR__ . '/build/copy';
+    $all = pakeFinder::type('any');
 
-$versionFile = __DIR__ . '/src/version.php';
+    // recreate empty build directory
+    pake_remove($all, $buildDir);
+    pake_mkdirs(__DIR__ . '/build/copy');
 
-$oldVersion = file_get_contents($versionFile);
-file_put_contents($versionFile, "<?php return '{$version}';" . PHP_EOL);
+    pake_mirror($all, __DIR__ . '/bin', $buildDir . '/bin');
+    pake_mirror($all, __DIR__ . '/src', $buildDir . '/src');
+    pake_copy(__DIR__ . '/composer.json', $buildDir . '/composer.json');
 
-$phar = new Compiler(__DIR__);
+    pake_echo('Writing version');
 
-$phar->addIndexFile('bin/encryptor');
+    $version = trim(`git describe --tags`);
+    $versionFile = $buildDir . '/src/version.php';
+    file_put_contents($versionFile, "<?php return '{$version}';" . PHP_EOL);
 
-$phar->addDirectory('src');
-$phar->addDirectory('vendor', [
-    // ignore non php files
-    '!*.php',
-    // various tests
-    'Tester/*',
-    'Tests/*',
-    'Test/*',
-    // compiler
-    'secondtruth/*'
-]);
+    pake_echo('Installing dependencies');
 
-$phar->compile(__DIR__ . '/build/encryptor.phar');
+    pake_sh("cd {$buildDir} && composer install --no-dev --optimize-autoloader");
 
-file_put_contents($versionFile, $oldVersion);
+    pake_echo('Compiling phar');
+
+    $phar = new Compiler($buildDir);
+
+    $phar->addIndexFile('bin/encryptor');
+
+    $phar->addDirectory('src');
+    $phar->addDirectory('vendor', [
+        // ignore non php files
+        '!*.php',
+        // test files
+        '*/Tests/*',
+        '*/Tester/*',
+        '*/Test/*',
+        '*/tests/*',
+        '*/test/*',
+    ]);
+
+    $phar->compile(__DIR__ . '/build/encryptor.phar');
+
+    pake_echo('Done');
 }
