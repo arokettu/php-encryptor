@@ -3,7 +3,9 @@
 namespace SandFox\Encryptor\Commands;
 
 use SandFox\Encryptor\Algo\V1;
+use SandFox\Encryptor\Secret\Password;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class Encrypt extends Base
@@ -14,6 +16,14 @@ class Encrypt extends Base
         $this->setDescription('Encrypts a file');
 
         $this->configureOptions();
+
+        $this->addOption(
+            'strength',
+            's',
+            InputOption::VALUE_REQUIRED,
+            'Password derivation strength (1-3)',
+            Password::STRENGTH_DEFAULT
+        );
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -32,5 +42,14 @@ class Encrypt extends Base
     protected function makeOutputFileName(string $inputFileName): string
     {
         return $inputFileName . self::EXT;
+    }
+
+    protected function getSecret(InputInterface $input, OutputInterface $output)
+    {
+        $secret = parent::getSecret($input, $output);
+        if ($secret instanceof Password) {
+            $secret->setStrength($input->getOption('strength'));
+        }
+        return $secret;
     }
 }

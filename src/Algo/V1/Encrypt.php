@@ -25,6 +25,8 @@ class Encrypt
         if ($secret instanceof Password) {
             $salt = random_bytes(SODIUM_CRYPTO_PWHASH_SALTBYTES);
             $container['salt'] = $salt;
+            $container['ops'] = $secret->getOpslimit();
+            $container['mem'] = $secret->getMemlimit();
             $secret->setSalt($salt);
         }
 

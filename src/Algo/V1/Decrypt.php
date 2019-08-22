@@ -28,6 +28,8 @@ class Decrypt
             }
 
             $secret->setSalt($container['salt']);
+            $secret->setMemlimit($container['mem']);
+            $secret->setOpslimit($container['ops']);
         }
 
         $nonce      = $container['nonce']   ?? $this->throw('Nonce not found');
