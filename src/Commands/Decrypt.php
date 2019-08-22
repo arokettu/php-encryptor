@@ -2,7 +2,7 @@
 
 namespace SandFox\Encryptor\Commands;
 
-use SandFox\Encryptor\Algo\V1;
+use SandFox\Encryptor\Algo\V2;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -24,7 +24,7 @@ class Decrypt extends Base
 
         $data = file_get_contents($inputFilename);
 
-        $dec = new V1\Decrypt();
+        $dec = new V2\Decrypt();
 
         file_put_contents($outputFilename, $dec->decrypt($data, $secret));
     }

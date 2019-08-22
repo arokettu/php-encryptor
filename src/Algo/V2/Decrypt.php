@@ -1,6 +1,6 @@
 <?php
 
-namespace SandFox\Encryptor\Algo\V1;
+namespace SandFox\Encryptor\Algo\V2;
 
 use RuntimeException;
 use SandFox\Bencode\Bencode;
@@ -9,6 +9,8 @@ use SandFox\Encryptor\Secret\Password;
 
 class Decrypt
 {
+    public const VERSION = 2;
+
     /**
      * @param string $data
      * @param Key|Password $secret
@@ -18,7 +20,7 @@ class Decrypt
     {
         $container = Bencode::decode($data);
 
-        if ($container['_a'] !== 'sfenc' || $container['_v'] !== 1) {
+        if ($container['_a'] !== 'sfenc' || $container['_v'] !== self::VERSION) {
             throw new RuntimeException('File header is invalid');
         }
 
@@ -35,7 +37,7 @@ class Decrypt
         $nonce      = $container['nonce']   ?? $this->throw('Nonce not found');
         $payload    = $container['payload'] ?? $this->throw('Payload not found');
 
-        $decrypted = sodium_crypto_secretbox_open($payload, $nonce, $secret->getKeyV1());
+        $decrypted = sodium_crypto_secretbox_open($payload, $nonce, $secret->getKeyV2());
 
         if ($decrypted === false) {
             throw new RuntimeException('Decryption failed');

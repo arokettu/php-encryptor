@@ -1,6 +1,6 @@
 <?php
 
-namespace SandFox\Encryptor\Algo\V1;
+namespace SandFox\Encryptor\Algo\V2;
 
 use Exception;
 use SandFox\Bencode\Bencode;
@@ -9,6 +9,8 @@ use SandFox\Encryptor\Secret\Password;
 
 class Encrypt
 {
+    public const VERSION = 2;
+
     /**
      * @param string $data
      * @param Key|Password $secret
@@ -19,7 +21,7 @@ class Encrypt
     {
         $container = [
             '_a' => 'sfenc',
-            '_v' => 1,
+            '_v' => self::VERSION,
         ];
 
         if ($secret instanceof Password) {
@@ -34,7 +36,7 @@ class Encrypt
 
         $container['nonce'] = $nonce;
 
-        $container['payload'] = sodium_crypto_secretbox($data, $nonce, $secret->getKeyV1());
+        $container['payload'] = sodium_crypto_secretbox($data, $nonce, $secret->getKeyV2());
 
         return Bencode::encode($container);
     }

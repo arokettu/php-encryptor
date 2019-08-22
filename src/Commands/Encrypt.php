@@ -2,7 +2,7 @@
 
 namespace SandFox\Encryptor\Commands;
 
-use SandFox\Encryptor\Algo\V1;
+use SandFox\Encryptor\Algo\V2;
 use SandFox\Encryptor\Secret\Password;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -34,7 +34,7 @@ class Encrypt extends Base
 
         $data = file_get_contents($inputFilename);
 
-        $enc = new V1\Encrypt();
+        $enc = new V2\Encrypt();
 
         file_put_contents($outputFilename, $enc->encrypt($data, $secret));
     }

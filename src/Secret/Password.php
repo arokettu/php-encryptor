@@ -81,7 +81,7 @@ class Password
         return $this->memlimit;
     }
 
-    public function getKeyV1(): string
+    public function getKeyV2(): string
     {
         if ($this->salt === null) {
             throw new LogicException('Cannot produce key without salt');
