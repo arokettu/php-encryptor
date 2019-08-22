@@ -23,6 +23,11 @@
             "src/polyfill.php"
         ]
     },
+    "autoload-dev": {
+        "psr-4": {
+            "": "tests"
+        }
+    },
     "require": {
         "php": ">= 7.2",
         "ext-sodium": "*",

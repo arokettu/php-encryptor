@@ -25,19 +25,37 @@ class Encrypt
         ];
 
         if ($secret instanceof Password) {
-            $salt = random_bytes(SODIUM_CRYPTO_PWHASH_SALTBYTES);
+            $salt = $this->getSalt();
             $container['salt'] = $salt;
             $container['ops'] = $secret->getOpslimit();
             $container['mem'] = $secret->getMemlimit();
             $secret->setSalt($salt);
         }
 
-        $nonce = random_bytes(SODIUM_CRYPTO_SECRETBOX_NONCEBYTES);
+        $nonce = $this->getNonce();
 
         $container['nonce'] = $nonce;
 
         $container['payload'] = sodium_crypto_secretbox($data, $nonce, $secret->getKeyV2());
 
         return Bencode::encode($container);
+    }
+
+    /**
+     * @return string
+     * @throws Exception
+     */
+    private function getSalt()
+    {
+        return random_bytes(SODIUM_CRYPTO_PWHASH_SALTBYTES);
+    }
+
+    /**
+     * @return string
+     * @throws Exception
+     */
+    private function getNonce()
+    {
+        return random_bytes(SODIUM_CRYPTO_SECRETBOX_NONCEBYTES);
     }
 }
