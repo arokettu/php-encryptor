@@ -2,8 +2,11 @@
 
 use Secondtruth\Compiler\Compiler;
 
-require 'vendor/autoload.php';
+pake_desc('Build phar');
+pake_task('build');
 
+function run_build()
+{
 if (!is_dir(__DIR__ . '/build')) {
     mkdir(__DIR__ . '/build');
 }
@@ -34,3 +37,4 @@ $phar->addDirectory('vendor', [
 $phar->compile(__DIR__ . '/build/encryptor.phar');
 
 file_put_contents($versionFile, $oldVersion);
+}
