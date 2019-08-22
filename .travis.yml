@@ -3,9 +3,19 @@ php:
   - '7.2'
   - '7.3'
 stages:
+  - test
   - deploy
-before_deploy:
-  - php make-phar.php
+cache:
+  directories:
+    - $HOME/.composer/cache/files
+install:
+  composer install
+jobs:
+  include:
+    - stage:  test
+      script: vendor/bin/phpunit tests
+    - stage:  deploy
+      script: php make-phar.php
 deploy:
   provider: releases
   api_key:
