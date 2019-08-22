@@ -30,4 +30,9 @@ class Decrypt
 
         return $decrypted;
     }
+
+    private function throw(string $message): string
+    {
+        throw new RuntimeException($message);
+    }
 }
