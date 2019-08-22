@@ -23,6 +23,7 @@ function run_build()
     pake_mirror($all, __DIR__ . '/bin', $buildDir . '/bin');
     pake_mirror($all, __DIR__ . '/src', $buildDir . '/src');
     pake_copy(__DIR__ . '/composer.json', $buildDir . '/composer.json');
+    pake_copy(__DIR__ . '/composer.lock', $buildDir . '/composer.lock');
 
     pake_echo('Writing version');
 
