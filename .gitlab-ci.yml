@@ -1,0 +1,28 @@
+image: php:7.2
+
+before_script:
+  - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
+  - composer install
+
+stages:
+  - test
+  - deploy
+
+test:
+  stage: test
+  script:
+    - vendor/bin/phpunit
+  only:
+    - tags
+  except:
+    - branches
+
+deploy:
+  stage: deploy
+  script:
+    - vendor/bin/pake build
+    - vendor/bin/pake upload
+  only:
+    - tags
+  except:
+    - branches
