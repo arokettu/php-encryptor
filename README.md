@@ -37,6 +37,10 @@ encryptor decrypt filename.txt.encrypted
 
 You will be interactively asked for the password
 
+## Documentation
+
+Read full documentation here: <https://sandfox.dev/php/encryptor.html>
+
 ## License
 
 The library is available as open source under the terms of the [MIT License].
