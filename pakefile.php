@@ -2,6 +2,8 @@
 
 // @codingStandardsIgnoreFile
 
+use Github\Client;
+use Github\Exception\RuntimeException as GithubRuntimeException;
 use Secondtruth\Compiler\Compiler;
 
 pake_desc('Build phar');
@@ -56,4 +58,62 @@ function run_build()
     $phar->compile(__DIR__ . '/build/encryptor.phar');
 
     pake_echo('Done');
+}
+
+pake_desc('Upload release to GitHub');
+pake_task('upload');
+/**
+ *
+ * @throws pakeException
+ */
+function run_upload()
+{
+    if (! file_exists(__DIR__ . '/build/encryptor.phar')) {
+        throw new RuntimeException('No built project');
+    }
+
+    $version = trim(`git describe --tags`);
+
+    $token = getenv('GITHUB_TOKEN');
+
+    if (empty($token)) {
+        throw new RuntimeException('Token is not set');
+    }
+
+    $github = new Client();
+    $github->authenticate($token, '', Client::AUTH_HTTP_TOKEN);
+
+    try {
+        $release = $github->api('repo')->releases()->tag('sandfoxme', 'php-encryptor', $version);
+        $assets = $github->api('repo')->releases()->assets()->all('sandfoxme', 'php-encryptor', $release['id']);
+        foreach ($assets as $asset) {
+            if ($asset['name'] === 'encryptor.phar') {
+                throw new RuntimeException('Asset already exists');
+            }
+        }
+    } catch (GithubRuntimeException $e) {
+        $tags = $github->api('repo')->tags('sandfoxme', 'php-encryptor');
+
+        $tagFound = false;
+        foreach ($tags as $tag) {
+            if ($tag['name'] === $version) {
+                $tagFound = true;
+            }
+        }
+
+        if (! $tagFound) {
+            throw new RuntimeException('Tag does not exist');
+        }
+
+        $release = $github->api('repo')->releases()->create('sandfoxme', 'php-encryptor', array('tag_name' => $version));
+    }
+
+    $github->api('repo')->releases()->assets()->create(
+        'sandfoxme',
+        'php-encryptor',
+        $release['id'],
+        'encryptor.phar',
+        'application/octet-stream',
+        pake_read_file(__DIR__ . '/build/encryptor.phar')
+    );
 }
