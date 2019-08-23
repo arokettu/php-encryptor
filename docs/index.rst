@@ -32,6 +32,8 @@ Usage
 -p, --password=PASSWORD     Encrypt/decrypt data with password.
 -s, --strength=STRENGTH     Encryption only: Key derivation strength for password encryption. (1-3, default 2)
 
+If no input file is specified, the tool will read from stdin.
+
 If neither ``--output`` nor ``--stdout`` are specified:
 
 * If data is read from stdin, output will be stdout
