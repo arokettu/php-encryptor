@@ -1,7 +1,7 @@
 image: php:7.2
 
 before_script:
-  - apt-get update && apt-get install unzip
+  - apt-get update && apt-get install git unzip
   - echo 'phar.readonly = off' > /usr/local/etc/php/conf.d/custom.ini
   - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
   - composer install
