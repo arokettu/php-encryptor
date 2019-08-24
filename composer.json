@@ -1,6 +1,7 @@
 {
     "name": "sandfoxme/encryptor",
     "description": "CLI File Encryptor",
+    "homepage": "https://sandfox.dev/php/encryptor.html",
     "keywords": [
         "php", "encryption", "sodium"
     ],
