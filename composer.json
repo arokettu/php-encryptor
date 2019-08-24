@@ -4,7 +4,7 @@
     "keywords": [
         "php", "encryption", "sodium"
     ],
-    "type": "project",
+    "type": "library",
     "license": "MIT",
     "authors": [
         {
