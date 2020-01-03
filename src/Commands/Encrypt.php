@@ -37,6 +37,8 @@ class Encrypt extends Base
         $enc = new V2\Encrypt();
 
         file_put_contents($outputFilename, $enc->encrypt($data, $secret));
+
+        return 0;
     }
 
     protected function makeOutputFileName(string $inputFileName): string

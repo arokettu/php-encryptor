@@ -27,6 +27,8 @@ class Decrypt extends Base
         $dec = new V2\Decrypt();
 
         file_put_contents($outputFilename, $dec->decrypt($data, $secret));
+
+        return 0;
     }
 
     protected function makeOutputFileName(string $inputFileName): string
