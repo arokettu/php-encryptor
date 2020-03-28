@@ -84,15 +84,15 @@ function run_upload()
     $github->authenticate($token, '', Client::AUTH_HTTP_TOKEN);
 
     try {
-        $release = $github->api('repo')->releases()->tag('sandfoxme', 'php-encryptor', $version);
-        $assets = $github->api('repo')->releases()->assets()->all('sandfoxme', 'php-encryptor', $release['id']);
+        $release = $github->api('repo')->releases()->tag('arokettu', 'php-encryptor', $version);
+        $assets = $github->api('repo')->releases()->assets()->all('arokettu', 'php-encryptor', $release['id']);
         foreach ($assets as $asset) {
             if ($asset['name'] === 'encryptor.phar') {
                 throw new RuntimeException('Asset already exists');
             }
         }
     } catch (GithubRuntimeException $e) {
-        $tags = $github->api('repo')->tags('sandfoxme', 'php-encryptor');
+        $tags = $github->api('repo')->tags('arokettu', 'php-encryptor');
 
         $tagFound = false;
         foreach ($tags as $tag) {
@@ -105,11 +105,11 @@ function run_upload()
             throw new RuntimeException('Tag does not exist');
         }
 
-        $release = $github->api('repo')->releases()->create('sandfoxme', 'php-encryptor', array('tag_name' => $version));
+        $release = $github->api('repo')->releases()->create('arokettu', 'php-encryptor', array('tag_name' => $version));
     }
 
     $github->api('repo')->releases()->assets()->create(
-        'sandfoxme',
+        'arokettu',
         'php-encryptor',
         $release['id'],
         'encryptor.phar',
