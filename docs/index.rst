@@ -1,7 +1,7 @@
 Encryptor
 #########
 
-|Packagist| |GitHub| |Gitlab| |Bitbucket| |Gitea|
+|Packagist| |GitHub| |GitLab| |Bitbucket| |Gitea|
 
 A small and simple tool to encrypt small files with with libsodium_.
 
@@ -10,11 +10,11 @@ Installation
 
 Install for local user with composer::
 
-   composer global require sandfoxme/encryptor
+   composer global require arokettu/encryptor
 
 Install for all users by downloading prebuilt phar::
 
-   sudo wget https://github.com/sandfoxme/php-encryptor/releases/latest/download/encryptor.phar -O /usr/local/bin/encryptor
+   sudo wget https://github.com/arokettu/php-encryptor/releases/latest/download/encryptor.phar -O /usr/local/bin/encryptor
    sudo chmod +x /usr/local/bin/encryptor
 
 Usage
@@ -110,11 +110,11 @@ The library is available as open source under the terms of the `MIT License`_.
 .. _bencoded:           https://en.wikipedia.org/wiki/Bencode
 .. _MIT License:        https://opensource.org/licenses/MIT
 
-.. |Packagist|  image:: https://img.shields.io/packagist/v/sandfoxme/encryptor.svg
-   :target: https://packagist.org/packages/sandfoxme/encryptor
+.. |Packagist|  image:: https://img.shields.io/packagist/v/arokettu/encryptor.svg
+   :target: https://packagist.org/packages/arokettu/encryptor
 .. |GitHub|     image:: https://img.shields.io/badge/get%20on-GitHub-informational.svg?logo=github
-   :target: https://github.com/sandfoxme/php-encryptor
-.. |Gitlab|     image:: https://img.shields.io/badge/get%20on-Gitlab-informational.svg?logo=gitlab
+   :target: https://github.com/arokettu/php-encryptor
+.. |GitLab|     image:: https://img.shields.io/badge/get%20on-Gitlab-informational.svg?logo=gitlab
    :target: https://gitlab.com/sandfox/php-encryptor
 .. |Bitbucket|  image:: https://img.shields.io/badge/get%20on-Bitbucket-informational.svg?logo=bitbucket
    :target: https://bitbucket.org/sandfox/php-encryptor

@@ -1,8 +1,8 @@
 # File Encryptor
 
-[![Packagist](https://img.shields.io/packagist/v/sandfoxme/encryptor.svg)](https://packagist.org/packages/sandfoxme/encryptor)
-[![Packagist](https://img.shields.io/github/license/sandfoxme/php-encryptor.svg)](https://opensource.org/licenses/MIT)
-[![Travis](https://img.shields.io/travis/sandfoxme/php-encryptor.svg)](https://travis-ci.org/sandfoxme/php-encryptor)
+[![Packagist](https://img.shields.io/packagist/v/arokettu/encryptor.svg)](https://packagist.org/packages/arokettu/encryptor)
+[![Packagist](https://img.shields.io/github/license/arokettu/php-encryptor.svg)](https://opensource.org/licenses/MIT)
+[![Travis](https://img.shields.io/travis/arokettu/php-encryptor.svg)](https://travis-ci.org/arokettu/php-encryptor)
 
 A small and simple tool to encrypt small files with with [libsodium].
 
@@ -11,13 +11,13 @@ A small and simple tool to encrypt small files with with [libsodium].
 Install for local user with composer:
 
 ```sh
-composer global require sandfoxme/encryptor
+composer global require arokettu/encryptor
 ```
 
 Install globally by downloading prebuilt phar:
 
 ```sh
-sudo wget https://github.com/sandfoxme/php-encryptor/releases/latest/download/encryptor.phar -O /usr/local/bin/encryptor
+sudo wget https://github.com/arokettu/php-encryptor/releases/latest/download/encryptor.phar -O /usr/local/bin/encryptor
 sudo chmod +x /usr/local/bin/encryptor
 ```
 
