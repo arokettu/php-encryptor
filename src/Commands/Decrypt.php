@@ -33,7 +33,9 @@ class Decrypt extends Base
 
     protected function makeOutputFileName(string $inputFileName): string
     {
-        if (str_ends_with_ci($inputFileName, self::EXT) && $inputFileName !== self::EXT) {
+        $inputFileNameInsensitive = strtolower($inputFileName);
+
+        if (str_ends_with($inputFileNameInsensitive, self::EXT) && $inputFileNameInsensitive !== self::EXT) {
             return substr($inputFileName, 0, -strlen(self::EXT));
         }
 
