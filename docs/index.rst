@@ -1,7 +1,7 @@
 Encryptor
 #########
 
-|Packagist| |GitHub| |GitLab| |Bitbucket| |Gitea|
+|Packagist| |GitLab| |GitHub| |Bitbucket| |Gitea|
 
 A small and simple tool to encrypt small files with with libsodium_.
 
@@ -111,12 +111,12 @@ The library is available as open source under the terms of the `MIT License`_.
 .. _MIT License:        https://opensource.org/licenses/MIT
 
 .. |Packagist|  image:: https://img.shields.io/packagist/v/arokettu/encryptor.svg
-   :target: https://packagist.org/packages/arokettu/encryptor
+   :target:     https://packagist.org/packages/arokettu/encryptor
 .. |GitHub|     image:: https://img.shields.io/badge/get%20on-GitHub-informational.svg?logo=github
-   :target: https://github.com/arokettu/php-encryptor
-.. |GitLab|     image:: https://img.shields.io/badge/get%20on-Gitlab-informational.svg?logo=gitlab
-   :target: https://gitlab.com/sandfox/php-encryptor
+   :target:     https://github.com/arokettu/php-encryptor
+.. |GitLab|     image:: https://img.shields.io/badge/get%20on-GitLab-informational.svg?logo=gitlab
+   :target:     https://gitlab.com/sandfox/php-encryptor
 .. |Bitbucket|  image:: https://img.shields.io/badge/get%20on-Bitbucket-informational.svg?logo=bitbucket
-   :target: https://bitbucket.org/sandfox/php-encryptor
+   :target:     https://bitbucket.org/sandfox/php-encryptor
 .. |Gitea|      image:: https://img.shields.io/badge/get%20on-Gitea-informational.svg
-   :target: https://git.sandfox.dev/sandfox/php-encryptor
+   :target:     https://sandfox.org/sandfox/php-encryptor
