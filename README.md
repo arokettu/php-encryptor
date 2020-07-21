@@ -1,7 +1,7 @@
 # File Encryptor
 
 [![Packagist](https://img.shields.io/packagist/v/arokettu/encryptor.svg)](https://packagist.org/packages/arokettu/encryptor)
-[![Packagist](https://img.shields.io/github/license/arokettu/php-encryptor.svg)](https://opensource.org/licenses/MIT)
+[![Packagist](https://img.shields.io/packagist/l/arokettu/encryptor.svg)](https://opensource.org/licenses/MIT)
 [![Travis](https://img.shields.io/travis/arokettu/php-encryptor.svg)](https://travis-ci.org/arokettu/php-encryptor)
 
 A small and simple tool to encrypt small files with with [libsodium].
