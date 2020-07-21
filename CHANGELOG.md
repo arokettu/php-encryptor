@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.0.3
+
+As CLI:
+
+* Update libraries to current versions
+
+As composer package:
+
+* Use composer v2 features when available
+* Allow sandfoxme/bencode v2
+* Limit upper PHP version
+
 ## 1.0.2
 
 *Jan 03, 2020*
