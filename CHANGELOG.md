@@ -2,6 +2,8 @@
 
 ## 1.0.3
 
+*Jul 21, 2020*
+
 As CLI:
 
 * Update libraries to current versions
