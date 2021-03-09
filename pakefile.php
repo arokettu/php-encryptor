@@ -30,8 +30,8 @@ function run_build()
     pake_echo('Writing version');
 
     $version = trim(`git describe --tags`);
-    $versionFile = $buildDir . '/src/version.php';
-    file_put_contents($versionFile, "<?php return '{$version}';" . PHP_EOL);
+    $version = preg_replace('/-/', '+git-', $version, 1);
+    pake_sh("cd {$buildDir} && composer config version {$version}");
 
     pake_echo('Installing dependencies');
 
