@@ -1,28 +1,86 @@
-image: php:7.2
-
-before_script:
-  - apt-get update && apt-get install -y git unzip
-  - echo 'phar.readonly = off' > /usr/local/etc/php/conf.d/custom.ini
-  - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
-  - composer install
-
 stages:
   - test
   - deploy
+  - report
 
-test:
-  stage: test
+cache:
+  key: composer-cache
+  paths:
+    - .composer-cache/
+
+.test:
+  before_script:
+    # install system packages
+    - apt-get update && apt-get install -y git unzip
+    # install extensions
+    - if [ "$INSTALL_XDEBUG" -eq 1 ]; then curl --location https://github.com/FriendsOfPHP/pickle/releases/latest/download/pickle.phar --output pickle.phar; php pickle.phar install --defaults xdebug; docker-php-ext-enable xdebug; fi
+    # install composer
+    - php -r "copy('https://composer.github.io/installer.sig', '/tmp/composer.sig');"
+    - php -r "copy('https://getcomposer.org/installer', '/tmp/composer-setup.php');"
+    - php -r '$expected = file_get_contents("/tmp/composer.sig"); $actual = hash_file("sha384", "/tmp/composer-setup.php"); exit(intval(!hash_equals($expected, $actual)));'
+    - php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer
+    - chmod +x /usr/local/bin/composer
+    - rm /tmp/composer-setup.php /tmp/composer.sig
+    # cache dependencies
+    - composer config -g cache-dir "$(pwd)/.composer-cache"
   script:
-    - vendor/bin/phpunit tests
-  only:
-    - tags
+    # test on recommended
+    - composer install
+    - vendor/bin/phpunit
+    # test on latest
+    - composer update
+    - vendor/bin/phpunit
+    # test on lowest
+    - composer update --prefer-lowest
+    - vendor/bin/phpunit
+
+# lowest version
+test-7.2:
+  extends: .test
+  stage: test
+  image: php:7.2
+
+test-7.3:
+  extends: .test
+  stage: test
+  image: php:7.3
+
+test-7.4:
+  extends: .test
+  stage: test
+  image: php:7.4
+
+test-8.0:
+  extends: .test
+  stage: test
+  image: php:8.0
+
+# latest unstable
+test-rc:
+  extends: .test
+  stage: test
+  image: php:rc
+  allow_failure: true
+
+# coverage
+coverage:
+  variables:
+    INSTALL_XDEBUG: 1
+  extends: .test
+  stage: deploy
+  image: php:7.4
+  script:
+    - composer update
+    - XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-clover coverage.xml
+    - bash <(curl -s https://codecov.io/bash)
   except:
-    - branches
+    - tags
 
 deploy:
+  image: php:7.2
   stage: deploy
   script:
-    - vendor/bin/pake build
+    - php -d phar.readonly=off vendor/bin/pake build
     - vendor/bin/pake upload
   only:
     - tags
