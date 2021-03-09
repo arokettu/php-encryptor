@@ -94,8 +94,8 @@ The file is guaranteed to start with ``d2:_a5:sfenc2:_v``
 V1 and V2 differences:
 
 * V2 uses Argon2id, V1 uses Argon2i
-* V2 uses ops and mem form the container, V1 always uses SENSITIVE (ops=8, mem=536_870_912)
-* V1 and V2 are equal when encrypting with key except for the version header
+* V2 uses ops and mem form the container, V1 always uses SENSITIVE (ops=8, mem=536_870_912, hardcoded since 1.1)
+* V1 and V2 are equal when encrypting with a key except for the version header
 
 V1 was used during early development.
 If you somehow used my dev version, you can still decode your files
