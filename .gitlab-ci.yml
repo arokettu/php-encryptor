@@ -27,6 +27,8 @@ cache:
     # test on recommended
     - composer install
     - vendor/bin/phpunit
+    # remove platform restrictions
+    - composer config --unset platform
     # test on latest
     - composer update
     - vendor/bin/phpunit
