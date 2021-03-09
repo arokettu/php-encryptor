@@ -82,7 +82,7 @@ class Password
         return $this->memlimit;
     }
 
-    public function getKeyV2(): string
+    private function getKey(int $alg): string
     {
         if ($this->salt === null) {
             throw new LogicException('Cannot produce key without salt');
@@ -98,27 +98,17 @@ class Password
             $this->salt,
             $this->getOpslimit(),
             $this->getMemlimit(),
-            self::ALG_V2
+            $alg
         );
     }
 
     public function getKeyV1(): string
     {
-        if ($this->salt === null) {
-            throw new LogicException('Cannot produce key without salt');
-        }
+        return $this->getKey(self::ALG_V1);
+    }
 
-        if (strlen($this->salt) !== SODIUM_CRYPTO_PWHASH_SALTBYTES) {
-            throw new LogicException('Incorrect salt length');
-        }
-
-        return sodium_crypto_pwhash(
-            SODIUM_CRYPTO_SECRETBOX_KEYBYTES,
-            $this->password,
-            $this->salt,
-            SODIUM_CRYPTO_PWHASH_OPSLIMIT_SENSITIVE,    // 8
-            SODIUM_CRYPTO_PWHASH_MEMLIMIT_SENSITIVE,   // 536'870'912
-            self::ALG_V1
-        );
+    public function getKeyV2(): string
+    {
+        return $this->getKey(self::ALG_V2);
     }
 }

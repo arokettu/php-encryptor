@@ -17,6 +17,8 @@ class Decrypt
             }
 
             $secret->setSalt($container['salt']);
+            $secret->setOpslimit(8); // hardcode original SODIUM_CRYPTO_PWHASH_OPSLIMIT_SENSITIVE
+            $secret->setMemlimit(536870912); // hardcode original SODIUM_CRYPTO_PWHASH_MEMLIMIT_SENSITIVE
         }
 
         $nonce   = $container['nonce'] ?? $this->throw('Nonce not found');
