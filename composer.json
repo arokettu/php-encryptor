@@ -10,9 +10,15 @@
     "authors": [
         {
             "name": "Anton Smirnov",
-            "email": "sandfox@sandfox.me"
+            "email": "sandfox@sandfox.me",
+            "homepage": "https://sandfox.me/",
+            "role": "developer"
         }
     ],
+    "support": {
+        "source": "https://gitlab.com/sandfox/php-encryptor",
+        "issues": "https://gitlab.com/sandfox/php-encryptor/-/issues"
+    },
     "config": {
         "platform": {
             "php": "7.2"
