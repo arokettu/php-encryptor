@@ -14,15 +14,15 @@ class Decrypt
     public const VERSION = 2;
 
     /**
-     * @param string $data
+     * @param resource $input
+     * @param resource $output
      * @param Key|Password $secret
-     * @return bool|string
      */
-    public function decrypt(string $data, $secret)
+    public function decrypt($input, $output, $secret): void
     {
-        $container = Bencode::decode($data);
+        $container = Bencode::decodeStream($input);
 
-        return $this->decryptContainer($container, $secret);
+        fwrite($output, $this->decryptContainer($container, $secret));
     }
 
     public function decryptContainer(array $container, $secret)

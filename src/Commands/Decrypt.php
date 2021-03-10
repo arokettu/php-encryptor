@@ -10,7 +10,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class Decrypt extends Base
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('decrypt');
         $this->setDescription('Decrypts a file');
@@ -18,17 +18,15 @@ class Decrypt extends Base
         $this->configureOptions();
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $inputFilename  = $this->getInputFileName($input);
-        $outputFilename = $this->getOutputFileName($input);
-        $secret         = $this->getSecret($input, $output);
-
-        $data = file_get_contents($inputFilename);
+        $inputFile  = $this->getInputFile($input);
+        $outputFile = $this->getOutputFile($input);
+        $secret     = $this->getSecret($input, $output);
 
         $dec = new V2\Decrypt();
 
-        file_put_contents($outputFilename, $dec->decrypt($data, $secret));
+        $dec->decrypt($inputFile, $outputFile, $secret);
 
         return 0;
     }

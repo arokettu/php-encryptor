@@ -54,6 +54,21 @@ abstract class Base extends Command
         );
     }
 
+    /**
+     * @param InputInterface $input
+     * @return resource
+     */
+    protected function getInputFile(InputInterface $input)
+    {
+        $inputFile = fopen($this->getInputFileName($input), 'r');
+
+        if ($inputFile === false) {
+            throw new \RuntimeException('Error reading the input file');
+        }
+
+        return $inputFile;
+    }
+
     protected function getInputFileName(InputInterface $input): string
     {
         $filename = $input->getArgument('input');
@@ -73,6 +88,21 @@ abstract class Base extends Command
     }
 
     abstract protected function makeOutputFileName(string $inputFileName): string;
+
+    /**
+     * @param InputInterface $input
+     * @return resource
+     */
+    protected function getOutputFile(InputInterface $input)
+    {
+        $outputFile = fopen($this->getOutputFileName($input), 'w');
+
+        if ($outputFile === false) {
+            throw new \RuntimeException('Error writing to the output file');
+        }
+
+        return $outputFile;
+    }
 
     protected function getOutputFileName(InputInterface $input): string
     {

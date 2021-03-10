@@ -31,19 +31,9 @@ class Encrypt extends Base
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $inputFilename  = $this->getInputFileName($input);
-        $outputFilename = $this->getOutputFileName($input);
-        $secret         = $this->getSecret($input, $output);
-
-        $inputFile  = fopen($inputFilename, 'r');
-        $outputFile = fopen($outputFilename, 'w');
-
-        if ($inputFile === false) {
-            throw new \RuntimeException('Error reading the input file');
-        }
-        if ($outputFile === false) {
-            throw new \RuntimeException('Error writing to the output file');
-        }
+        $inputFile  = $this->getInputFile($input);
+        $outputFile = $this->getOutputFile($input);
+        $secret     = $this->getSecret($input, $output);
 
         $enc = new V2\Encrypt();
 

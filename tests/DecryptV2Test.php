@@ -26,10 +26,11 @@ class DecryptV2Test extends TestCase
                 $this->getEncrypted_V2_S3(),
             ] as $encrypted
         ) {
-            $this->assertEquals(
-                $this->getDecrypted(),
-                $decrypt->decrypt($encrypted, $secret)
-            );
+            $decryptedStream = $this->getTempStream();
+            $decrypt->decrypt($this->getTempStream($encrypted), $decryptedStream, $secret);
+            $decrypted = $this->readTempStream($decryptedStream);
+
+            $this->assertEquals($this->getDecrypted(), $decrypted);
         }
     }
 
@@ -45,10 +46,12 @@ class DecryptV2Test extends TestCase
             ] as [$encrypted, $key]
         ) {
             $secret = new Key($key);
-            $this->assertEquals(
-                $this->getDecrypted(),
-                $decrypt->decrypt($encrypted, $secret)
-            );
+
+            $decryptedStream = $this->getTempStream();
+            $decrypt->decrypt($this->getTempStream($encrypted), $decryptedStream, $secret);
+            $decrypted = $this->readTempStream($decryptedStream);
+
+            $this->assertEquals($this->getDecrypted(), $decrypted);
         }
     }
 }
