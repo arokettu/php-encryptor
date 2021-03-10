@@ -72,6 +72,7 @@ coverage:
   stage: deploy
   image: php:7.4
   script:
+    - composer config --unset platform
     - composer update
     - XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-clover coverage.xml
     - bash <(curl -s https://codecov.io/bash)

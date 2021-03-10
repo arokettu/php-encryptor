@@ -3,6 +3,7 @@
 namespace SandFox\Encryptor\Commands;
 
 use SandFox\Encryptor\Algo\V2;
+use SandFox\Encryptor\Secret\Key;
 use SandFox\Encryptor\Secret\Password;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -10,7 +11,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class Encrypt extends Base
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('encrypt');
         $this->setDescription('Encrypts a file');
@@ -26,17 +27,25 @@ class Encrypt extends Base
         );
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $inputFilename  = $this->getInputFileName($input);
         $outputFilename = $this->getOutputFileName($input);
         $secret         = $this->getSecret($input, $output);
 
-        $data = file_get_contents($inputFilename);
+        $inputFile  = fopen($inputFilename, 'r');
+        $outputFile = fopen($outputFilename, 'w');
+
+        if ($inputFile === false) {
+            throw new \RuntimeException('Error reading the input file');
+        }
+        if ($outputFile === false) {
+            throw new \RuntimeException('Error writing to the output file');
+        }
 
         $enc = new V2\Encrypt();
 
-        file_put_contents($outputFilename, $enc->encrypt($data, $secret));
+        $enc->encrypt($inputFile, $outputFile, $secret);
 
         return 0;
     }
@@ -46,6 +55,11 @@ class Encrypt extends Base
         return $inputFileName . self::EXT;
     }
 
+    /**
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     * @return Key|Password
+     */
     protected function getSecret(InputInterface $input, OutputInterface $output)
     {
         $secret = parent::getSecret($input, $output);

@@ -2,12 +2,36 @@
 
 trait TestData
 {
-    protected function getPassword()
+    /**
+     * @param string $content
+     * @return resource
+     */
+    protected function getTempStream(string $content = '')
+    {
+        $stream = fopen('php://temp', 'r+');
+        fwrite($stream, $content);
+        rewind($stream);
+
+        return $stream;
+    }
+
+    /**
+     * @param resource $stream
+     * @return string
+     */
+    protected function readTempStream($stream): string
+    {
+        rewind($stream);
+
+        return stream_get_contents($stream);
+    }
+
+    protected function getPassword(): string
     {
         return '123456';
     }
 
-    protected function getDecrypted()
+    protected function getDecrypted(): string
     {
         return <<<MD
 The MIT License (MIT)
@@ -39,12 +63,12 @@ OTHER DEALINGS IN THE SOFTWARE.
 MD;
     }
 
-    protected function getKey_V1()
+    protected function getKey_V1(): string
     {
         return 'debb383cc375b4aa3934eeb4fbec868daa2ebbe29996f93d7dd57f67b3d914f3';
     }
 
-    protected function getEncrypted_V1()
+    protected function getEncrypted_V1(): string
     {
         $data = <<<DATA
 ZDI6X2E1OnNmZW5jMjpfdmkxZTU6bm9uY2UyNDpVdNnzMhylB72Ox+AcF/teSkZIOh1EMwA3OnBh
@@ -73,12 +97,12 @@ DATA;
         return base64_decode($data);
     }
 
-    protected function getKey_V2_S1()
+    protected function getKey_V2_S1(): string
     {
         return '71e00886bbcd566b83d8e2dd8e010b952c9719bfdc7bf671cd45fb52d2b6ac2c';
     }
 
-    protected function getEncrypted_V2_S1()
+    protected function getEncrypted_V2_S1(): string
     {
         $data = <<<DATA
 ZDI6X2E1OnNmZW5jMjpfdmkyZTM6bWVtaTY3MTA4ODY0ZTU6bm9uY2UyNDp+VySixD5vYkNbckLq
@@ -108,12 +132,12 @@ DATA;
         return base64_decode($data);
     }
 
-    protected function getKey_V2_S2()
+    protected function getKey_V2_S2(): string
     {
         return 'e2ca8b8f971148b59e3f66ae2420d664b12a9a824e791df2bb75320b4cc7237c';
     }
 
-    protected function getEncrypted_V2_S2()
+    protected function getEncrypted_V2_S2(): string
     {
         $data = <<<DATA
 ZDI6X2E1OnNmZW5jMjpfdmkyZTM6bWVtaTI2ODQzNTQ1NmU1Om5vbmNlMjQ6AHyB6buAQSArZPz4
@@ -143,12 +167,12 @@ DATA;
         return base64_decode($data);
     }
 
-    protected function getKey_V2_S3()
+    protected function getKey_V2_S3(): string
     {
         return '1ace37716a1dca026291ed0b856abf4bb20d4808c7e66d91ce6ecd675dee2c36';
     }
 
-    protected function getEncrypted_V2_S3()
+    protected function getEncrypted_V2_S3(): string
     {
         $data = <<<DATA
 ZDI6X2E1OnNmZW5jMjpfdmkyZTM6bWVtaTEwNzM3NDE4MjRlNTpub25jZTI0OnzS1RaBAtUriana

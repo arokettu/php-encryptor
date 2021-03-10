@@ -12,12 +12,12 @@ class Encrypt
     public const VERSION = 2;
 
     /**
-     * @param string $data
+     * @param resource $input
+     * @param resource $output
      * @param Key|Password $secret
-     * @return string
      * @throws Exception
      */
-    public function encrypt(string $data, $secret)
+    public function encrypt($input, $output, $secret): void
     {
         $container = [
             '_a' => 'sfenc',
@@ -36,25 +36,17 @@ class Encrypt
 
         $container['nonce'] = $nonce;
 
-        $container['payload'] = sodium_crypto_secretbox($data, $nonce, $secret->getKeyV2());
+        $container['payload'] = sodium_crypto_secretbox(stream_get_contents($input), $nonce, $secret->getKeyV2());
 
-        return Bencode::encode($container);
+        Bencode::encodeToStream($container, $output);
     }
 
-    /**
-     * @return string
-     * @throws Exception
-     */
-    private function getSalt()
+    private function getSalt(): string
     {
         return random_bytes(SODIUM_CRYPTO_PWHASH_SALTBYTES);
     }
 
-    /**
-     * @return string
-     * @throws Exception
-     */
-    private function getNonce()
+    private function getNonce(): string
     {
         return random_bytes(SODIUM_CRYPTO_SECRETBOX_NONCEBYTES);
     }
