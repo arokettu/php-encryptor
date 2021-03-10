@@ -81,7 +81,7 @@ function run_upload()
     }
 
     $github = new Client();
-    $github->authenticate($token, '', Client::AUTH_HTTP_TOKEN);
+    $github->authenticate($token, '', Client::AUTH_ACCESS_TOKEN);
 
     try {
         $release = $github->api('repo')->releases()->tag('arokettu', 'php-encryptor', $version);
