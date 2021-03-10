@@ -66,7 +66,7 @@ class Encrypt extends Base
     {
         $secret = parent::getSecret($input, $output);
         if ($secret instanceof Password) {
-            $secret->setStrength($input->getOption('strength'));
+            $secret->setStrength((int)$input->getOption('strength'));
         }
         return $secret;
     }

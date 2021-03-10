@@ -1,9 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
+namespace Arokettu\Encryptor\Tests;
+
+use Arokettu\Encryptor\Algo\V2\Decrypt;
+use Arokettu\Encryptor\Secret\Key;
+use Arokettu\Encryptor\Secret\Password;
 use PHPUnit\Framework\TestCase;
-use SandFox\Encryptor\Algo\V2\Decrypt;
-use SandFox\Encryptor\Secret\Key;
-use SandFox\Encryptor\Secret\Password;
 
 class DecryptV1Test extends TestCase
 {

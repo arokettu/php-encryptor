@@ -1,5 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
+// @phpcs:disable PSR1.Methods.CamelCapsMethodName.NotCamelCaps
+
+namespace Arokettu\Encryptor\Tests;
+
 trait TestData
 {
     /**
