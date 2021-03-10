@@ -1,8 +1,10 @@
 <?php
 
-namespace SandFox\Encryptor\Commands;
+declare(strict_types=1);
 
-use SandFox\Encryptor\Algo\V2;
+namespace Arokettu\Encryptor\Commands;
+
+use Arokettu\Encryptor\Algo\V2;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 

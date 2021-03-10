@@ -1,6 +1,8 @@
 <?php
 
-namespace SandFox\Encryptor\Secret;
+declare(strict_types=1);
+
+namespace Arokettu\Encryptor\Secret;
 
 use RuntimeException;
 

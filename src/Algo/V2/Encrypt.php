@@ -1,11 +1,12 @@
 <?php
 
-namespace SandFox\Encryptor\Algo\V2;
+declare(strict_types=1);
 
-use Exception;
+namespace Arokettu\Encryptor\Algo\V2;
+
+use Arokettu\Encryptor\Secret\Key;
+use Arokettu\Encryptor\Secret\Password;
 use SandFox\Bencode\Bencode;
-use SandFox\Encryptor\Secret\Key;
-use SandFox\Encryptor\Secret\Password;
 
 class Encrypt
 {
@@ -15,7 +16,7 @@ class Encrypt
      * @param resource $input
      * @param resource $output
      * @param Key|Password $secret
-     * @throws Exception
+     * @throws \Exception
      */
     public function encrypt($input, $output, $secret): void
     {

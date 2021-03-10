@@ -1,10 +1,11 @@
 <?php
 
-namespace SandFox\Encryptor\Commands;
+declare(strict_types=1);
 
-use RuntimeException;
-use SandFox\Encryptor\Secret\Key;
-use SandFox\Encryptor\Secret\Password;
+namespace Arokettu\Encryptor\Commands;
+
+use Arokettu\Encryptor\Secret\Key;
+use Arokettu\Encryptor\Secret\Password;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\QuestionHelper;
 use Symfony\Component\Console\Input\InputArgument;
@@ -65,7 +66,7 @@ abstract class Base extends Command
         $filename = realpath($filename);
 
         if (!$filename || !is_file($filename) || !is_readable($filename)) {
-            throw new RuntimeException('Input file is not readable');
+            throw new \RuntimeException('Input file is not readable');
         }
 
         return $filename;
@@ -79,7 +80,7 @@ abstract class Base extends Command
         $filename = $input->getOption('output');
 
         if ($stdout && $filename) {
-            throw new RuntimeException('Both --output and --stdout are specified');
+            throw new \RuntimeException('Both --output and --stdout are specified');
         }
 
         if ($stdout || $this->stdin && $filename === null) {
@@ -92,12 +93,14 @@ abstract class Base extends Command
 
         $basedir = dirname($filename);
 
-        if (is_file($filename) && is_writable($filename) || is_dir($basedir) && is_writable($basedir)
+        if (
+            is_file($filename) && is_writable($filename) ||
+            is_dir($basedir) && is_writable($basedir)
         ) {
             return $filename;
         }
 
-        throw new RuntimeException('Output file is not writable');
+        throw new \RuntimeException('Output file is not writable');
     }
 
     /**
@@ -111,7 +114,7 @@ abstract class Base extends Command
         $password   = $input->getOption('password');
 
         if ($key !== null && $password !== null) {
-            throw new RuntimeException('Both --key and --password are specified');
+            throw new \RuntimeException('Both --key and --password are specified');
         }
 
         if ($key !== null) {
@@ -130,7 +133,7 @@ abstract class Base extends Command
                     return $pwd;
                 }
 
-                throw new RuntimeException('Empty password!'); // message is discarded here
+                throw new \RuntimeException('Empty password!'); // message is discarded here
             });
             $question->setMaxAttempts(3);
 

@@ -1,9 +1,10 @@
 <?php
 
-namespace SandFox\Encryptor\Algo\V1;
+declare(strict_types=1);
 
-use RuntimeException;
-use SandFox\Encryptor\Secret\Password;
+namespace Arokettu\Encryptor\Algo\V1;
+
+use Arokettu\Encryptor\Secret\Password;
 
 class Decrypt
 {
@@ -13,7 +14,7 @@ class Decrypt
 
         if ($secret instanceof Password) {
             if (!isset($container['salt'])) {
-                throw new RuntimeException('No salt in the container: cannot decrypt with password');
+                throw new \RuntimeException('No salt in the container: cannot decrypt with password');
             }
 
             $secret->setSalt($container['salt']);
@@ -27,7 +28,7 @@ class Decrypt
         $decrypted = sodium_crypto_secretbox_open($payload, $nonce, $secret->getKeyV1());
 
         if ($decrypted === false) {
-            throw new RuntimeException('Decryption failed');
+            throw new \RuntimeException('Decryption failed');
         }
 
         return $decrypted;
@@ -35,6 +36,6 @@ class Decrypt
 
     private function throw(string $message): string
     {
-        throw new RuntimeException($message);
+        throw new \RuntimeException($message);
     }
 }

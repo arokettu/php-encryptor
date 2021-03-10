@@ -1,12 +1,13 @@
 <?php
 
-namespace SandFox\Encryptor\Algo\V2;
+declare(strict_types=1);
 
-use RuntimeException;
+namespace Arokettu\Encryptor\Algo\V2;
+
+use Arokettu\Encryptor\Algo\V1\Decrypt as DecryptV1;
+use Arokettu\Encryptor\Secret\Key;
+use Arokettu\Encryptor\Secret\Password;
 use SandFox\Bencode\Bencode;
-use SandFox\Encryptor\Algo\V1\Decrypt as DecryptV1;
-use SandFox\Encryptor\Secret\Key;
-use SandFox\Encryptor\Secret\Password;
 
 class Decrypt
 {
@@ -27,7 +28,7 @@ class Decrypt
     public function decryptContainer(array $container, $secret)
     {
         if ($container['_a'] !== 'sfenc') {
-            throw new RuntimeException('File header is invalid');
+            throw new \RuntimeException('File header is invalid');
         }
 
         if ($container['_v'] !== self::VERSION) {
@@ -37,13 +38,13 @@ class Decrypt
                     return (new DecryptV1())->decryptContainer($container, $secret);
 
                 default:
-                    throw new RuntimeException('File version is unsupported');
+                    throw new \RuntimeException('File version is unsupported');
             }
         }
 
         if ($secret instanceof Password) {
             if (!isset($container['salt'])) {
-                throw new RuntimeException('No salt in the container: cannot decrypt with password');
+                throw new \RuntimeException('No salt in the container: cannot decrypt with password');
             }
 
             $secret->setSalt($container['salt']);
@@ -57,7 +58,7 @@ class Decrypt
         $decrypted = sodium_crypto_secretbox_open($payload, $nonce, $secret->getKeyV2());
 
         if ($decrypted === false) {
-            throw new RuntimeException('Decryption failed');
+            throw new \RuntimeException('Decryption failed');
         }
 
         return $decrypted;
@@ -65,6 +66,6 @@ class Decrypt
 
     private function throw(string $message): string
     {
-        throw new RuntimeException($message);
+        throw new \RuntimeException($message);
     }
 }
