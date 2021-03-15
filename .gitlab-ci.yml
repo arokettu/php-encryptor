@@ -89,14 +89,8 @@ deploy:
     - composer install
     - php -d phar.readonly=off vendor/bin/pake build
     - vendor/bin/pake upload
+    - release-cli create --description "$CI_COMMIT_TAG" --tag-name "$CI_COMMIT_TAG" --assets-link "{\"name\":\"encryptor.phar\",\"url\":\"https://github.com/arokettu/php-encryptor/releases/download/$CI_COMMIT_TAG/encryptor.phar\"}"
   only:
     - tags
-  release:
-    tag_name: $CI_COMMIT_TAG
-    description: $CI_COMMIT_TAG
-    assets:
-      links:
-        - name: encryptor.phar
-          link: https://github.com/arokettu/php-encryptor/releases/download/$CI_COMMIT_TAG/encryptor.phar
   except:
     - branches
