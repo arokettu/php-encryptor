@@ -80,6 +80,7 @@ coverage:
     - tags
 
 deploy:
+  extends: .test
   image: php:7.2
   stage: deploy
   script:
