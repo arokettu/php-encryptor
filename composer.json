@@ -17,7 +17,8 @@
     ],
     "support": {
         "source": "https://gitlab.com/sandfox/php-encryptor",
-        "issues": "https://gitlab.com/sandfox/php-encryptor/-/issues"
+        "issues": "https://gitlab.com/sandfox/php-encryptor/-/issues",
+        "docs": "https://php-encryptor.readthedocs.io/"
     },
     "config": {
         "platform": {
