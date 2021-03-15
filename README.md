@@ -42,6 +42,8 @@ You will be interactively asked for the password
 
 Read full documentation here: <https://sandfox.dev/php/encryptor.html>
 
+Also on Read the Docs: <https://php-encryptor.readthedocs.io/>
+
 ## License
 
 The library is available as open source under the terms of the [MIT License].
