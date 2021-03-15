@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.1.0
+
+*Mar 15, 2021*
+
+* Hardcoded V1 params
+* Composer 2.x is now required to build CLI version
+* Switched to bencode stream API internally
+
 ## 1.0.3
 
 *Jul 21, 2020*
