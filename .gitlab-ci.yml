@@ -83,6 +83,7 @@ deploy:
   image: php:7.2
   stage: deploy
   script:
+    - composer install
     - php -d phar.readonly=off vendor/bin/pake build
     - vendor/bin/pake upload
   only:
