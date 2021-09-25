@@ -18,7 +18,7 @@ class Key
             throw new RuntimeException('Key is not a valid hexadecimal value');
         }
 
-        if (strlen($key) !== SODIUM_CRYPTO_SECRETBOX_KEYBYTES) {
+        if (\strlen($key) !== SODIUM_CRYPTO_SECRETBOX_KEYBYTES) {
             throw new RuntimeException('Key must encode ' . SODIUM_CRYPTO_SECRETBOX_KEYBYTES . ' bytes of data');
         }
 

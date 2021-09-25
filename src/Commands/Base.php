@@ -21,7 +21,7 @@ abstract class Base extends Command
 
     protected $stdin = false;
 
-    protected function configureOptions()
+    protected function configureOptions(): void
     {
         $this->addArgument('input', InputArgument::OPTIONAL, 'Input file (stdin if omitted)');
 
@@ -159,7 +159,7 @@ abstract class Base extends Command
             $question->setHidden(true);
             $question->setNormalizer('trim');
             $question->setValidator(function ($pwd) {
-                if (strlen($pwd) > 0) {
+                if (\strlen($pwd) > 0) {
                     return $pwd;
                 }
 

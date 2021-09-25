@@ -36,7 +36,7 @@ class Decrypt extends Base
         $inputFileNameInsensitive = strtolower($inputFileName);
 
         if (str_ends_with($inputFileNameInsensitive, self::EXT) && $inputFileNameInsensitive !== self::EXT) {
-            return substr($inputFileName, 0, -strlen(self::EXT));
+            return substr($inputFileName, 0, -\strlen(self::EXT));
         }
 
         return $inputFileName . '.decrypted';

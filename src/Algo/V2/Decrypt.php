@@ -25,7 +25,13 @@ class Decrypt
         fwrite($output, $this->decryptContainer($container, $secret));
     }
 
-    public function decryptContainer(array $container, $secret)
+    /**
+     * @param array $container
+     * @param Key|Password $secret
+     * @return string
+     * @throws \SodiumException
+     */
+    public function decryptContainer(array $container, $secret): string
     {
         if ($container['_a'] !== 'sfenc') {
             throw new \RuntimeException('File header is invalid');

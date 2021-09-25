@@ -28,12 +28,12 @@ class Password
         $this->password = $password;
     }
 
-    public function setSalt(string $salt)
+    public function setSalt(string $salt): void
     {
         $this->salt = $salt;
     }
 
-    public function setStrength(int $strength)
+    public function setStrength(int $strength): void
     {
         switch ($strength) {
             case self::STRENGTH_MINIMUM:
@@ -90,7 +90,7 @@ class Password
             throw new LogicException('Cannot produce key without salt');
         }
 
-        if (strlen($this->salt) !== SODIUM_CRYPTO_PWHASH_SALTBYTES) {
+        if (\strlen($this->salt) !== SODIUM_CRYPTO_PWHASH_SALTBYTES) {
             throw new LogicException('Incorrect salt length');
         }
 

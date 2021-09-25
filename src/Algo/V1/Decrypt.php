@@ -4,11 +4,18 @@ declare(strict_types=1);
 
 namespace Arokettu\Encryptor\Algo\V1;
 
+use Arokettu\Encryptor\Secret\Key;
 use Arokettu\Encryptor\Secret\Password;
 
 class Decrypt
 {
-    public function decryptContainer(array $container, $secret)
+    /**
+     * @param array $container
+     * @param Key|Password $secret
+     * @return string
+     * @throws \SodiumException
+     */
+    public function decryptContainer(array $container, $secret): string
     {
         // version and container are already checked, go to decryption
 
