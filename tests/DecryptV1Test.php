@@ -13,7 +13,7 @@ class DecryptV1Test extends TestCase
 {
     use TestData;
 
-    public function testDecryptPasswordV1()
+    public function testDecryptPasswordV1(): void
     {
         $decrypt = new Decrypt();
 
@@ -27,7 +27,7 @@ class DecryptV1Test extends TestCase
         $this->assertEquals($this->getDecrypted(), $decrypted);
     }
 
-    public function testDecryptKeyV1()
+    public function testDecryptKeyV1(): void
     {
         $decrypt = new Decrypt();
 

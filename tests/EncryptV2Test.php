@@ -14,7 +14,7 @@ class EncryptV2Test extends TestCase
 {
     use TestData;
 
-    public function testEncryptWithPassword()
+    public function testEncryptWithPassword(): void
     {
         $decrypted = $this->getDecrypted();
 
@@ -40,7 +40,7 @@ class EncryptV2Test extends TestCase
         }
     }
 
-    public function testEncryptWithKey()
+    public function testEncryptWithKey(): void
     {
         $decrypted = $this->getDecrypted();
 

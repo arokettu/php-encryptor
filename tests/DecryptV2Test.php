@@ -13,7 +13,7 @@ class DecryptV2Test extends TestCase
 {
     use TestData;
 
-    public function testDecryptPasswordV2()
+    public function testDecryptPasswordV2(): void
     {
         $decrypt = new Decrypt();
         $password = $this->getPassword();
@@ -34,7 +34,7 @@ class DecryptV2Test extends TestCase
         }
     }
 
-    public function testDecryptKeyV2()
+    public function testDecryptKeyV2(): void
     {
         $decrypt = new Decrypt();
 
