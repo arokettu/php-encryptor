@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.1
+
+*Sep 25, 2021*
+
+* bencode 3.x is now allowed
+
 ## 1.1.0
 
 *Mar 15, 2021*
