@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.2
+
+*Nov 6, 2021*
+
+* Symfony 6.x is now allowed
+
 ## 1.1.1
 
 *Sep 25, 2021*
