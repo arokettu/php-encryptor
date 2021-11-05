@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7116423db685c9623901365c3f28c755",
+    "content-hash": "d70f7069996cc8a7db3282ce687ebb54",
     "packages": [
         {
             "name": "arokettu/is-resource",
@@ -114,16 +114,16 @@
         },
         {
             "name": "sandfoxme/bencode",
-            "version": "1.7.1",
+            "version": "1.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/arokettu/bencode.git",
-                "reference": "c7c1e21e479deb03607aefcbe9ffdd3110a82d81"
+                "reference": "460c721d86b4b6e472ee66f5340c81491a646732"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/arokettu/bencode/zipball/c7c1e21e479deb03607aefcbe9ffdd3110a82d81",
-                "reference": "c7c1e21e479deb03607aefcbe9ffdd3110a82d81",
+                "url": "https://api.github.com/repos/arokettu/bencode/zipball/460c721d86b4b6e472ee66f5340c81491a646732",
+                "reference": "460c721d86b4b6e472ee66f5340c81491a646732",
                 "shasum": ""
             },
             "require": {
@@ -138,7 +138,7 @@
                 "pear/math_biginteger": "^1.0",
                 "phpunit/phpunit": ">=6.0.0 <10",
                 "psy/psysh": "*",
-                "sandfox.dev/code-standard": "7.0.x@dev",
+                "sandfox.dev/code-standard": "^10@dev",
                 "squizlabs/php_codesniffer": "*"
             },
             "suggest": {
@@ -179,20 +179,20 @@
                 "issues": "https://gitlab.com/sandfox/bencode/-/issues",
                 "source": "https://gitlab.com/sandfox/bencode"
             },
-            "time": "2021-09-25T02:01:04+00:00"
+            "time": "2021-10-24T03:23:18+00:00"
         },
         {
             "name": "symfony/console",
-            "version": "v5.3.7",
+            "version": "v5.3.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "8b1008344647462ae6ec57559da166c2bfa5e16a"
+                "reference": "d4e409d9fbcfbf71af0e5a940abb7b0b4bad0bd3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/8b1008344647462ae6ec57559da166c2bfa5e16a",
-                "reference": "8b1008344647462ae6ec57559da166c2bfa5e16a",
+                "url": "https://api.github.com/repos/symfony/console/zipball/d4e409d9fbcfbf71af0e5a940abb7b0b4bad0bd3",
+                "reference": "d4e409d9fbcfbf71af0e5a940abb7b0b4bad0bd3",
                 "shasum": ""
             },
             "require": {
@@ -262,7 +262,7 @@
                 "terminal"
             ],
             "support": {
-                "source": "https://github.com/symfony/console/tree/v5.3.7"
+                "source": "https://github.com/symfony/console/tree/v5.3.10"
             },
             "funding": [
                 {
@@ -278,7 +278,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-08-25T20:02:16+00:00"
+            "time": "2021-10-26T09:30:15+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",
@@ -914,16 +914,16 @@
         },
         {
             "name": "symfony/string",
-            "version": "v5.3.7",
+            "version": "v5.3.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/string.git",
-                "reference": "8d224396e28d30f81969f083a58763b8b9ceb0a5"
+                "reference": "d70c35bb20bbca71fc4ab7921e3c6bda1a82a60c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/string/zipball/8d224396e28d30f81969f083a58763b8b9ceb0a5",
-                "reference": "8d224396e28d30f81969f083a58763b8b9ceb0a5",
+                "url": "https://api.github.com/repos/symfony/string/zipball/d70c35bb20bbca71fc4ab7921e3c6bda1a82a60c",
+                "reference": "d70c35bb20bbca71fc4ab7921e3c6bda1a82a60c",
                 "shasum": ""
             },
             "require": {
@@ -977,7 +977,7 @@
                 "utf8"
             ],
             "support": {
-                "source": "https://github.com/symfony/string/tree/v5.3.7"
+                "source": "https://github.com/symfony/string/tree/v5.3.10"
             },
             "funding": [
                 {
@@ -993,7 +993,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-08-26T08:00:08+00:00"
+            "time": "2021-10-27T18:21:46+00:00"
         }
     ],
     "packages-dev": [
@@ -1612,16 +1612,16 @@
         },
         {
             "name": "php-http/cache-plugin",
-            "version": "1.7.2",
+            "version": "1.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-http/cache-plugin.git",
-                "reference": "922409f10541b0d581b8ffe5cd810f4efc9e9e32"
+                "reference": "6a55c651585756f282760b7d374599ed5dabea81"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-http/cache-plugin/zipball/922409f10541b0d581b8ffe5cd810f4efc9e9e32",
-                "reference": "922409f10541b0d581b8ffe5cd810f4efc9e9e32",
+                "url": "https://api.github.com/repos/php-http/cache-plugin/zipball/6a55c651585756f282760b7d374599ed5dabea81",
+                "reference": "6a55c651585756f282760b7d374599ed5dabea81",
                 "shasum": ""
             },
             "require": {
@@ -1665,9 +1665,9 @@
             ],
             "support": {
                 "issues": "https://github.com/php-http/cache-plugin/issues",
-                "source": "https://github.com/php-http/cache-plugin/tree/1.7.2"
+                "source": "https://github.com/php-http/cache-plugin/tree/1.7.3"
             },
-            "time": "2021-04-14T06:06:08+00:00"
+            "time": "2021-11-03T07:26:41+00:00"
         },
         {
             "name": "php-http/client-common",
@@ -2238,16 +2238,16 @@
         },
         {
             "name": "phpdocumentor/reflection-docblock",
-            "version": "5.2.2",
+            "version": "5.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "069a785b2141f5bcf49f3e353548dc1cce6df556"
+                "reference": "622548b623e81ca6d78b721c5e029f4ce664f170"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/069a785b2141f5bcf49f3e353548dc1cce6df556",
-                "reference": "069a785b2141f5bcf49f3e353548dc1cce6df556",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/622548b623e81ca6d78b721c5e029f4ce664f170",
+                "reference": "622548b623e81ca6d78b721c5e029f4ce664f170",
                 "shasum": ""
             },
             "require": {
@@ -2258,7 +2258,8 @@
                 "webmozart/assert": "^1.9.1"
             },
             "require-dev": {
-                "mockery/mockery": "~1.3.2"
+                "mockery/mockery": "~1.3.2",
+                "psalm/phar": "^4.8"
             },
             "type": "library",
             "extra": {
@@ -2288,22 +2289,22 @@
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
             "support": {
                 "issues": "https://github.com/phpDocumentor/ReflectionDocBlock/issues",
-                "source": "https://github.com/phpDocumentor/ReflectionDocBlock/tree/master"
+                "source": "https://github.com/phpDocumentor/ReflectionDocBlock/tree/5.3.0"
             },
-            "time": "2020-09-03T19:13:55+00:00"
+            "time": "2021-10-19T17:43:47+00:00"
         },
         {
             "name": "phpdocumentor/type-resolver",
-            "version": "1.5.0",
+            "version": "1.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/TypeResolver.git",
-                "reference": "30f38bffc6f24293dadd1823936372dfa9e86e2f"
+                "reference": "a12f7e301eb7258bb68acd89d4aefa05c2906cae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/30f38bffc6f24293dadd1823936372dfa9e86e2f",
-                "reference": "30f38bffc6f24293dadd1823936372dfa9e86e2f",
+                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/a12f7e301eb7258bb68acd89d4aefa05c2906cae",
+                "reference": "a12f7e301eb7258bb68acd89d4aefa05c2906cae",
                 "shasum": ""
             },
             "require": {
@@ -2338,9 +2339,9 @@
             "description": "A PSR-5 based resolver of Class names, Types and Structural Element Names",
             "support": {
                 "issues": "https://github.com/phpDocumentor/TypeResolver/issues",
-                "source": "https://github.com/phpDocumentor/TypeResolver/tree/1.5.0"
+                "source": "https://github.com/phpDocumentor/TypeResolver/tree/1.5.1"
             },
-            "time": "2021-09-17T15:28:14+00:00"
+            "time": "2021-10-02T14:08:47+00:00"
         },
         {
             "name": "phpspec/prophecy",
@@ -2411,16 +2412,16 @@
         },
         {
             "name": "phpstan/phpdoc-parser",
-            "version": "0.5.6",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpdoc-parser.git",
-                "reference": "fac86158ffc7392e49636f77e63684c026df43b8"
+                "reference": "dbc093d7af60eff5cd575d2ed761b15ed40bd08e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/fac86158ffc7392e49636f77e63684c026df43b8",
-                "reference": "fac86158ffc7392e49636f77e63684c026df43b8",
+                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/dbc093d7af60eff5cd575d2ed761b15ed40bd08e",
+                "reference": "dbc093d7af60eff5cd575d2ed761b15ed40bd08e",
                 "shasum": ""
             },
             "require": {
@@ -2429,15 +2430,15 @@
             "require-dev": {
                 "php-parallel-lint/php-parallel-lint": "^1.2",
                 "phpstan/extension-installer": "^1.0",
-                "phpstan/phpstan": "^0.12.87",
-                "phpstan/phpstan-strict-rules": "^0.12.5",
+                "phpstan/phpstan": "^1.0",
+                "phpstan/phpstan-strict-rules": "^1.0",
                 "phpunit/phpunit": "^9.5",
                 "symfony/process": "^5.2"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.5-dev"
+                    "dev-master": "1.0-dev"
                 }
             },
             "autoload": {
@@ -2454,9 +2455,9 @@
             "description": "PHPDoc parser with support for nullable, intersection and generic types",
             "support": {
                 "issues": "https://github.com/phpstan/phpdoc-parser/issues",
-                "source": "https://github.com/phpstan/phpdoc-parser/tree/0.5.6"
+                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.2.0"
             },
-            "time": "2021-08-31T08:08:22+00:00"
+            "time": "2021-09-16T20:46:02+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -2757,16 +2758,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "8.5.20",
+            "version": "8.5.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "9deefba183198398a09b927a6ac6bc1feb0b7b70"
+                "reference": "50a58a60b85947b0bee4c8ecfe0f4bbdcf20e984"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/9deefba183198398a09b927a6ac6bc1feb0b7b70",
-                "reference": "9deefba183198398a09b927a6ac6bc1feb0b7b70",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/50a58a60b85947b0bee4c8ecfe0f4bbdcf20e984",
+                "reference": "50a58a60b85947b0bee4c8ecfe0f4bbdcf20e984",
                 "shasum": ""
             },
             "require": {
@@ -2838,7 +2839,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/8.5.20"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/8.5.21"
             },
             "funding": [
                 {
@@ -2850,7 +2851,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-08-31T06:44:38+00:00"
+            "time": "2021-09-25T07:37:20+00:00"
         },
         {
             "name": "psr/cache",
@@ -3943,32 +3944,32 @@
         },
         {
             "name": "slevomat/coding-standard",
-            "version": "7.0.15",
+            "version": "7.0.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/slevomat/coding-standard.git",
-                "reference": "cc80e59f9b4ca642f02dc1b615c37a9afc2a0f80"
+                "reference": "14c324b2f2f0072933036c2f3abaeda16a56dcd3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/cc80e59f9b4ca642f02dc1b615c37a9afc2a0f80",
-                "reference": "cc80e59f9b4ca642f02dc1b615c37a9afc2a0f80",
+                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/14c324b2f2f0072933036c2f3abaeda16a56dcd3",
+                "reference": "14c324b2f2f0072933036c2f3abaeda16a56dcd3",
                 "shasum": ""
             },
             "require": {
                 "dealerdirect/phpcodesniffer-composer-installer": "^0.6.2 || ^0.7",
                 "php": "^7.1 || ^8.0",
-                "phpstan/phpdoc-parser": "0.5.1 - 0.5.6",
-                "squizlabs/php_codesniffer": "^3.6.0"
+                "phpstan/phpdoc-parser": "^1.0.0",
+                "squizlabs/php_codesniffer": "^3.6.1"
             },
             "require-dev": {
                 "phing/phing": "2.17.0",
                 "php-parallel-lint/php-parallel-lint": "1.3.1",
-                "phpstan/phpstan": "0.12.98",
+                "phpstan/phpstan": "0.12.99",
                 "phpstan/phpstan-deprecation-rules": "0.12.6",
                 "phpstan/phpstan-phpunit": "0.12.22",
                 "phpstan/phpstan-strict-rules": "0.12.11",
-                "phpunit/phpunit": "7.5.20|8.5.5|9.5.9"
+                "phpunit/phpunit": "7.5.20|8.5.5|9.5.10"
             },
             "type": "phpcodesniffer-standard",
             "extra": {
@@ -3988,7 +3989,7 @@
             "description": "Slevomat Coding Standard for PHP_CodeSniffer complements Consistence Coding Standard by providing sniffs with additional checks.",
             "support": {
                 "issues": "https://github.com/slevomat/coding-standard/issues",
-                "source": "https://github.com/slevomat/coding-standard/tree/7.0.15"
+                "source": "https://github.com/slevomat/coding-standard/tree/7.0.16"
             },
             "funding": [
                 {
@@ -4000,20 +4001,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-09-09T10:29:09+00:00"
+            "time": "2021-10-22T06:56:51+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "3.6.0",
+            "version": "3.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "ffced0d2c8fa8e6cdc4d695a743271fab6c38625"
+                "reference": "f268ca40d54617c6e06757f83f699775c9b3ff2e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/ffced0d2c8fa8e6cdc4d695a743271fab6c38625",
-                "reference": "ffced0d2c8fa8e6cdc4d695a743271fab6c38625",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/f268ca40d54617c6e06757f83f699775c9b3ff2e",
+                "reference": "f268ca40d54617c6e06757f83f699775c9b3ff2e",
                 "shasum": ""
             },
             "require": {
@@ -4056,20 +4057,20 @@
                 "source": "https://github.com/squizlabs/PHP_CodeSniffer",
                 "wiki": "https://github.com/squizlabs/PHP_CodeSniffer/wiki"
             },
-            "time": "2021-04-09T00:54:41+00:00"
+            "time": "2021-10-11T04:00:11+00:00"
         },
         {
             "name": "symfony/http-client",
-            "version": "v5.3.7",
+            "version": "v5.3.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-client.git",
-                "reference": "da8638ffecefc4e8ba2bc848d7b61a408119b333"
+                "reference": "710b69ed4bc9469900ec5ae5c3807b0509bee0dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-client/zipball/da8638ffecefc4e8ba2bc848d7b61a408119b333",
-                "reference": "da8638ffecefc4e8ba2bc848d7b61a408119b333",
+                "url": "https://api.github.com/repos/symfony/http-client/zipball/710b69ed4bc9469900ec5ae5c3807b0509bee0dc",
+                "reference": "710b69ed4bc9469900ec5ae5c3807b0509bee0dc",
                 "shasum": ""
             },
             "require": {
@@ -4127,7 +4128,7 @@
             "description": "Provides powerful methods to fetch HTTP resources synchronously or asynchronously",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/http-client/tree/v5.3.7"
+                "source": "https://github.com/symfony/http-client/tree/v5.3.10"
             },
             "funding": [
                 {
@@ -4143,7 +4144,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-08-28T16:24:37+00:00"
+            "time": "2021-10-19T08:32:53+00:00"
         },
         {
             "name": "symfony/http-client-contracts",
@@ -4409,7 +4410,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.2 || ^8.0",
+        "php": "^7.2 | ^8.0",
         "ext-sodium": "*"
     },
     "platform-dev": {
