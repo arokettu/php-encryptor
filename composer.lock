@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d70f7069996cc8a7db3282ce687ebb54",
+    "content-hash": "4bed5dcf25c855a51a0c0716740f5a8d",
     "packages": [
         {
             "name": "arokettu/is-resource",
@@ -1611,6 +1611,47 @@
             "time": "2021-02-23T14:00:09+00:00"
         },
         {
+            "name": "pheromone/phpcs-security-audit",
+            "version": "2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FloeDesignTechnologies/phpcs-security-audit.git",
+                "reference": "68a6c53a57156a5efb2073b1eb3f2d79a46c9dc2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FloeDesignTechnologies/phpcs-security-audit/zipball/68a6c53a57156a5efb2073b1eb3f2d79a46c9dc2",
+                "reference": "68a6c53a57156a5efb2073b1eb3f2d79a46c9dc2",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4",
+                "squizlabs/php_codesniffer": ">3.0"
+            },
+            "type": "phpcodesniffer-standard",
+            "autoload": {
+                "psr-4": {
+                    "PHPCS_SecurityAudit\\": "Security/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Jonathan Marcil",
+                    "homepage": "https://twitter.com/jonathanmarcil"
+                }
+            ],
+            "description": "phpcs-security-audit is a set of PHP_CodeSniffer rules that finds vulnerabilities and weaknesses related to security in PHP code",
+            "support": {
+                "issues": "https://github.com/FloeDesignTechnologies/phpcs-security-audit/issues",
+                "source": "https://github.com/FloeDesignTechnologies/phpcs-security-audit/tree/master"
+            },
+            "time": "2019-08-05T19:34:55+00:00"
+        },
+        {
             "name": "php-http/cache-plugin",
             "version": "1.7.3",
             "source": {
@@ -3114,20 +3155,21 @@
         },
         {
             "name": "sandfox.dev/code-standard",
-            "version": "7.2.x-dev",
+            "version": "10.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/arokettu/php-code-standard.git",
-                "reference": "31a8d20ed7f68d76bd17ca928f109531791d04f7"
+                "reference": "133f1212aa8cebf2fc0dcff5c021331f973dfbf3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/arokettu/php-code-standard/zipball/31a8d20ed7f68d76bd17ca928f109531791d04f7",
-                "reference": "31a8d20ed7f68d76bd17ca928f109531791d04f7",
+                "url": "https://api.github.com/repos/arokettu/php-code-standard/zipball/133f1212aa8cebf2fc0dcff5c021331f973dfbf3",
+                "reference": "133f1212aa8cebf2fc0dcff5c021331f973dfbf3",
                 "shasum": ""
             },
             "require": {
                 "dealerdirect/phpcodesniffer-composer-installer": "*",
+                "pheromone/phpcs-security-audit": "*",
                 "phpcompatibility/php-compatibility": "*",
                 "slevomat/coding-standard": "*",
                 "squizlabs/php_codesniffer": "*"
@@ -3148,9 +3190,9 @@
             "description": "A personal code standard for CodeSniffer",
             "support": {
                 "issues": "https://github.com/arokettu/php-code-standard/issues",
-                "source": "https://github.com/arokettu/php-code-standard/tree/7.1"
+                "source": "https://github.com/arokettu/php-code-standard/tree/10"
             },
-            "time": "2021-09-11T23:24:20+00:00"
+            "time": "2021-10-23T00:01:36+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
@@ -4419,5 +4461,5 @@
     "platform-overrides": {
         "php": "7.2.5"
     },
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.2.0"
 }

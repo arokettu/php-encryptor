@@ -3,7 +3,7 @@
     @see https://github.com/squizlabs/PHP_CodeSniffer/wiki/Annotated-Ruleset
 -->
 <ruleset name="Custom Standard" namespace="MyProject\CS\Standard">
-    <rule ref="Sandfox">
+    <rule ref="SandFox_PHP72">
         <exclude name="SlevomatCodingStandard.Namespaces.UnusedUses.UnusedUse"/>
     </rule>
     <config name="testVersion" value="7.2-"/>
