@@ -28,6 +28,11 @@ class Password
         $this->password = $password;
     }
 
+    public function __destruct()
+    {
+        sodium_memzero($this->password);
+    }
+
     public function setSalt(string $salt): void
     {
         $this->salt = $salt;

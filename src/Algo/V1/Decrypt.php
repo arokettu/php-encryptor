@@ -32,7 +32,9 @@ class Decrypt
         $nonce   = $container['nonce'] ?? $this->throw('Nonce not found');
         $payload = $container['payload'] ?? $this->throw('Payload not found');
 
-        $decrypted = sodium_crypto_secretbox_open($payload, $nonce, $secret->getKeyV1());
+        $key = $secret->getKeyV1();
+        $decrypted = sodium_crypto_secretbox_open($payload, $nonce, $key);
+        sodium_memzero($key);
 
         if ($decrypted === false) {
             throw new \RuntimeException('Decryption failed');

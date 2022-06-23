@@ -37,7 +37,9 @@ class Encrypt
 
         $container['nonce'] = $nonce;
 
-        $container['payload'] = sodium_crypto_secretbox(stream_get_contents($input), $nonce, $secret->getKeyV2());
+        $key = $secret->getKeyV2();
+        $container['payload'] = sodium_crypto_secretbox(stream_get_contents($input), $nonce, $key);
+        sodium_memzero($key);
 
         Bencode::encodeToStream($container, $output);
     }

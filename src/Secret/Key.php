@@ -25,6 +25,11 @@ class Key
         $this->key = $key;
     }
 
+    public function __destruct()
+    {
+        sodium_memzero($this->key);
+    }
+
     public function getKeyV2(): string
     {
         return $this->key;
@@ -32,6 +37,6 @@ class Key
 
     public function getKeyV1(): string
     {
-        return $this->getKeyV2();
+        return $this->key;
     }
 }
