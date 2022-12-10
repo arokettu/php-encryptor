@@ -69,7 +69,7 @@ coverage:
     INSTALL_XDEBUG: 1
   extends: .test
   stage: deploy
-  image: php:7.4
+  image: php:8.2
   script:
     - composer config --unset platform
     - composer update
