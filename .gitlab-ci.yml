@@ -33,7 +33,13 @@ cache:
     # test on latest
     - composer update
     - vendor/bin/phpunit
-    # test on lowest
+
+# lowest version with the lowest dependencies
+test-7.2-lowest:
+  extends: .test
+  stage: test
+  image: php:7.2
+  script:
     - composer update --prefer-lowest
     - vendor/bin/phpunit
 
