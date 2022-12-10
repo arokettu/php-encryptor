@@ -25,9 +25,11 @@ cache:
     # cache dependencies
     - composer config -g cache-dir "$(pwd)/.composer-cache"
   script:
-    # test on recommended
+    # test on locked
     - composer install
     - vendor/bin/phpunit
+    # verify that the locked deps do not have security flaws
+    - composer audit
     # remove platform restrictions
     - composer config --unset platform
     # test on latest
