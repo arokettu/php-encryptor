@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.3
+
+*Dec 13, 2022*
+
+* sandfoxme/bencode -> arokettu/bencode
+
 ## 1.1.2
 
 *Nov 6, 2021*
