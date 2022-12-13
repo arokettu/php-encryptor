@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Arokettu\Encryptor\Algo\V2;
 
+use Arokettu\Bencode\Bencode;
 use Arokettu\Encryptor\Secret\Key;
 use Arokettu\Encryptor\Secret\Password;
-use SandFox\Bencode\Bencode;
 
 class Encrypt
 {

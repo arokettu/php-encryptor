@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Arokettu\Encryptor\Algo\V2;
 
+use Arokettu\Bencode\Bencode;
 use Arokettu\Encryptor\Algo\V1\Decrypt as DecryptV1;
 use Arokettu\Encryptor\Secret\Key;
 use Arokettu\Encryptor\Secret\Password;
-use SandFox\Bencode\Bencode;
 
 class Decrypt
 {
@@ -20,7 +20,7 @@ class Decrypt
      */
     public function decrypt($input, $output, $secret): void
     {
-        $container = Bencode::decodeStream($input);
+        $container = (array)Bencode::decodeStream($input);
 
         fwrite($output, $this->decryptContainer($container, $secret));
     }
