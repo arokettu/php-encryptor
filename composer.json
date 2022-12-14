@@ -55,6 +55,7 @@
         "indeyets/pake": "^1.99",
         "knplabs/github-api": "^3.0",
         "nyholm/psr7": "^1.4",
+        "php5friends/polyfill-create_function": "^0.0.4",
         "phpunit/phpunit": "^8.5 | ^9.5",
         "sandfox.dev/code-standard": "^10@dev",
         "secondtruth/phar-compiler": "^1.1",

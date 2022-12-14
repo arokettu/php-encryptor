@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0098dc63539c52c98a475a58256d7dad",
+    "content-hash": "1aa6319e9661a9991725ac947136b95c",
     "packages": [
         {
             "name": "arokettu/bencode",
@@ -2185,6 +2185,40 @@
                 "source": "https://github.com/php-http/promise/tree/1.1.0"
             },
             "time": "2020-07-07T09:29:14+00:00"
+        },
+        {
+            "name": "php5friends/polyfill-create_function",
+            "version": "0.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php5friends/polyfill-create_function.git",
+                "reference": "8ce0726a4ca334f37f57154a2b6d112352239c4a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php5friends/polyfill-create_function/zipball/8ce0726a4ca334f37f57154a2b6d112352239c4a",
+                "reference": "8ce0726a4ca334f37f57154a2b6d112352239c4a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "create_function.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "FSFAP"
+            ],
+            "description": "Polyfill of create_function()",
+            "support": {
+                "issues": "https://github.com/php5friends/polyfill-create_function/issues",
+                "source": "https://github.com/php5friends/polyfill-create_function/tree/0.0.4"
+            },
+            "time": "2020-12-09T21:26:57+00:00"
         },
         {
             "name": "phpcompatibility/php-compatibility",
