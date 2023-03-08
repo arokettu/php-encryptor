@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1aa6319e9661a9991725ac947136b95c",
+    "content-hash": "1e206f31e7745660ab2444df66a866dc",
     "packages": [
         {
             "name": "arokettu/bencode",
@@ -2982,7 +2982,7 @@
         },
         {
             "name": "sandfox.dev/code-standard",
-            "version": "10.x-dev",
+            "version": "1.2022.06.29",
             "source": {
                 "type": "git",
                 "url": "https://github.com/arokettu/php-code-standard.git",
@@ -3001,7 +3001,6 @@
                 "slevomat/coding-standard": "*",
                 "squizlabs/php_codesniffer": "*"
             },
-            "default-branch": true,
             "type": "phpcodesniffer-standard",
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -3018,7 +3017,7 @@
             "description": "A personal code standard for CodeSniffer",
             "support": {
                 "issues": "https://github.com/arokettu/php-code-standard/issues",
-                "source": "https://github.com/arokettu/php-code-standard/tree/10"
+                "source": "https://github.com/arokettu/php-code-standard/tree/1.2022.06.29"
             },
             "time": "2022-06-29T03:39:44+00:00"
         },
@@ -4220,9 +4219,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "sandfox.dev/code-standard": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
