@@ -51,7 +51,7 @@
         "symfony/polyfill-php80": "^1.18"
     },
     "require-dev": {
-        "composer-runtime-api": "^2",
+        "composer-runtime-api": "^2.2",
         "indeyets/pake": "^1.99",
         "knplabs/github-api": "^3.0",
         "nyholm/psr7": "^1.4",

@@ -1,14 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-if (file_exists(__DIR__.'/../vendor/autoload.php')) {
-    require __DIR__ . '/../vendor/autoload.php';
-} elseif (file_exists(__DIR__ . '/../../../autoload.php')) {
-    require __DIR__ . '/../../../autoload.php';
-} else {
-    echo 'You must set up the project dependencies using `composer install`' . PHP_EOL.
-         'See https://getcomposer.org/download/ for instructions on installing Composer' . PHP_EOL;
-    exit(1);
-}
+declare(strict_types=1);
 
+require $_composer_autoload_path ?? __DIR__ . '/../vendor/autoload.php';
 require __DIR__ . '/../src/app.php';
