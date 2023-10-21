@@ -5,6 +5,7 @@
 *Oct 22, 2023*
 
 * Symfony 7.x is now allowed
+* Composer 2.2+ is now required
 
 ## 1.1.3
 
