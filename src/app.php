@@ -7,15 +7,10 @@ use Arokettu\Encryptor\Commands\Encrypt;
 use Composer\InstalledVersions;
 use Symfony\Component\Console\Application;
 
-if (Phar::running() !== '') {
-    $version = ['@version@'];
-} elseif (class_exists(InstalledVersions::class)) {
-    $version = [InstalledVersions::getPrettyVersion('arokettu/encryptor')];
-} else {
-    $version = [];
-}
-
-$app = new Application('Encryptor', ...$version); // do not pass second parameter at all if the version was not detected
+$app = new Application(
+    'arokettu/encryptor',
+    Phar::running() !== '' ? '@version@' : InstalledVersions::getPrettyVersion('arokettu/encryptor')
+);
 
 $app->add(new Decrypt());
 $app->add(new Encrypt());
