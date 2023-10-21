@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.4
+
+*Oct 22, 2023*
+
+* Symfony 7.x is now allowed
+
 ## 1.1.3
 
 *Dec 13, 2022*
