@@ -15,4 +15,4 @@ $app = new Application(
 $app->add(new Decrypt());
 $app->add(new Encrypt());
 
-$app->run();
+return $app;
