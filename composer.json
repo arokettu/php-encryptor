@@ -28,9 +28,6 @@
             "dealerdirect/phpcodesniffer-composer-installer": true,
             "php-http/discovery": false
         },
-        "audit": {
-            "abandoned": "report"
-        },
         "autoloader-suffix": "EncryptorApp",
         "platform-check": true,
         "sort-packages": true

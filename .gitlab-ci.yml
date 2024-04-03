@@ -29,7 +29,7 @@ cache:
     - composer install
     - vendor/bin/phpunit
     # verify that the locked deps do not have security flaws
-    - composer audit
+    - composer audit --no-dev
     # remove platform restrictions
     - composer config --unset platform
     # test on latest
