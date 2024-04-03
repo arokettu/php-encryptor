@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.5
+
+*Apr 4, 2024*
+
+* Implement reproducible builds
+
 ## 1.1.4
 
 *Oct 22, 2023*
