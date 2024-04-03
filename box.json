@@ -7,5 +7,6 @@
     ],
     "dump-autoload": true,
     "algorithm": "SHA512",
+    "alias": "encryptor.phar",
     "git-version": "version"
 }
