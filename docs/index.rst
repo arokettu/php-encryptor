@@ -1,7 +1,7 @@
 Encryptor
 #########
 
-|Packagist| |GitLab| |GitHub| |Bitbucket| |Gitea|
+|Packagist| |GitLab| |GitHub| |Codeberg| |Gitea|
 
 A small and simple tool to encrypt small files with with libsodium_.
 
@@ -40,7 +40,7 @@ The library is available as open source under the terms of the `MIT License`_.
    :target:     https://github.com/arokettu/php-encryptor
 .. |GitLab|     image:: https://img.shields.io/badge/get%20on-GitLab-informational.svg?style=flat-square&logo=gitlab
    :target:     https://gitlab.com/sandfox/php-encryptor
-.. |Bitbucket|  image:: https://img.shields.io/badge/get%20on-Bitbucket-informational.svg?style=flat-square&logo=bitbucket
-   :target:     https://bitbucket.org/sandfox/php-encryptor
+.. |Codeberg|   image:: https://img.shields.io/badge/get%20on-Codeberg-informational.svg?style=flat-square&logo=codeberg
+   :target:     https://codeberg.org/sandfox/php-encryptor
 .. |Gitea|      image:: https://img.shields.io/badge/get%20on-Gitea-informational.svg?style=flat-square&logo=gitea
    :target:     https://sandfox.org/sandfox/php-encryptor
