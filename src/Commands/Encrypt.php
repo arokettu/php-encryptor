@@ -11,7 +11,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class Encrypt extends Base
+final class Encrypt extends Base
 {
     protected function configure(): void
     {
@@ -25,7 +25,7 @@ class Encrypt extends Base
             's',
             InputOption::VALUE_REQUIRED,
             'Password derivation strength (1-3)',
-            Password::STRENGTH_DEFAULT
+            Password::STRENGTH_DEFAULT,
         );
     }
 
@@ -52,7 +52,7 @@ class Encrypt extends Base
      * @param OutputInterface $output
      * @return Key|Password
      */
-    protected function getSecret(InputInterface $input, OutputInterface $output)
+    protected function getSecret(InputInterface $input, OutputInterface $output): Key|Password
     {
         $secret = parent::getSecret($input, $output);
         if ($secret instanceof Password) {

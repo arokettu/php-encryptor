@@ -9,7 +9,7 @@ use Arokettu\Encryptor\Algo\V1\Decrypt as DecryptV1;
 use Arokettu\Encryptor\Secret\Key;
 use Arokettu\Encryptor\Secret\Password;
 
-class Decrypt
+final class Decrypt
 {
     public const VERSION = 2;
 
@@ -18,7 +18,7 @@ class Decrypt
      * @param resource $output
      * @param Key|Password $secret
      */
-    public function decrypt($input, $output, $secret): void
+    public function decrypt($input, $output, Key|Password $secret): void
     {
         $container = (array)Bencode::decodeStream($input);
 
@@ -31,7 +31,7 @@ class Decrypt
      * @return string
      * @throws \SodiumException
      */
-    public function decryptContainer(array $container, $secret): string
+    public function decryptContainer(array $container, Key|Password $secret): string
     {
         if ($container['_a'] !== 'sfenc') {
             throw new \RuntimeException('File header is invalid');

@@ -9,7 +9,7 @@ use Arokettu\Encryptor\Secret\Key;
 use Arokettu\Encryptor\Secret\Password;
 use PHPUnit\Framework\TestCase;
 
-class DecryptV1Test extends TestCase
+final class DecryptV1Test extends TestCase
 {
     use TestData;
 

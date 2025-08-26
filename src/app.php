@@ -9,7 +9,7 @@ use Symfony\Component\Console\Application;
 
 $app = new Application(
     'arokettu/encryptor',
-    Phar::running() !== '' ? '@version@' : InstalledVersions::getPrettyVersion('arokettu/encryptor')
+    Phar::running() !== '' ? '@version@' : InstalledVersions::getPrettyVersion('arokettu/encryptor'),
 );
 
 $app->add(new Decrypt());

@@ -7,7 +7,7 @@ namespace Arokettu\Encryptor\Secret;
 use LogicException;
 use UnexpectedValueException;
 
-class Password
+final class Password
 {
     public const STRENGTH_MINIMUM   = 1;
     public const STRENGTH_MODERATE  = 2;
@@ -57,7 +57,7 @@ class Password
                 break;
 
             default:
-                throw new UnexpectedValueException(sprintf('Unknown strength level: %d', $strength));
+                throw new UnexpectedValueException(\sprintf('Unknown strength level: %d', $strength));
         }
     }
 
@@ -105,7 +105,7 @@ class Password
             $this->salt,
             $this->getOpslimit(),
             $this->getMemlimit(),
-            $alg
+            $alg,
         );
     }
 

@@ -8,7 +8,7 @@ use Arokettu\Bencode\Bencode;
 use Arokettu\Encryptor\Secret\Key;
 use Arokettu\Encryptor\Secret\Password;
 
-class Encrypt
+final class Encrypt
 {
     public const VERSION = 2;
 
@@ -18,7 +18,7 @@ class Encrypt
      * @param Key|Password $secret
      * @throws \Exception
      */
-    public function encrypt($input, $output, $secret): void
+    public function encrypt($input, $output, Key|Password $secret): void
     {
         $container = [
             '_a' => 'sfenc',

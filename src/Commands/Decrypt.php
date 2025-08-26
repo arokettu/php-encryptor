@@ -8,7 +8,7 @@ use Arokettu\Encryptor\Algo\V2;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class Decrypt extends Base
+final class Decrypt extends Base
 {
     protected function configure(): void
     {

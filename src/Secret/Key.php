@@ -6,7 +6,7 @@ namespace Arokettu\Encryptor\Secret;
 
 use RuntimeException;
 
-class Key
+final class Key
 {
     private $key;
 

@@ -29,28 +29,28 @@ abstract class Base extends Command
             'output',
             'o',
             InputOption::VALUE_REQUIRED,
-            'Output file (derived from input file name if omitted, stdout if stdin)'
+            'Output file (derived from input file name if omitted, stdout if stdin)',
         );
         $this->addOption(
             'stdout',
             null,
             InputOption::VALUE_NONE,
-            'Force output into stdout'
+            'Force output into stdout',
         );
         $this->addOption(
             'key',
             'k',
             InputOption::VALUE_REQUIRED,
-            sprintf(
+            \sprintf(
                 'Encryption key, hex-encoded %d byte length key. More secure option than a password',
-                SODIUM_CRYPTO_SECRETBOX_KEYBYTES
-            )
+                SODIUM_CRYPTO_SECRETBOX_KEYBYTES,
+            ),
         );
         $this->addOption(
             'password',
             'p',
             InputOption::VALUE_REQUIRED,
-            'Encryption password. If neither key nor password are provided, the program will ask for a password'
+            'Encryption password. If neither key nor password are provided, the program will ask for a password',
         );
     }
 
@@ -121,7 +121,7 @@ abstract class Base extends Command
             $filename = $this->makeOutputFileName($this->getInputFileName($input));
         }
 
-        $basedir = dirname($filename);
+        $basedir = \dirname($filename);
 
         if (
             is_file($filename) && is_writable($filename) ||
@@ -138,7 +138,7 @@ abstract class Base extends Command
      * @param OutputInterface $output
      * @return Key|Password
      */
-    protected function getSecret(InputInterface $input, OutputInterface $output)
+    protected function getSecret(InputInterface $input, OutputInterface $output): Key|Password
     {
         $key        = $input->getOption('key');
         $password   = $input->getOption('password');
@@ -158,7 +158,7 @@ abstract class Base extends Command
             $question = new Question('Please provide the password: ');
             $question->setHidden(true);
             $question->setNormalizer('trim');
-            $question->setValidator(function ($pwd) {
+            $question->setValidator(static function ($pwd) {
                 if (\strlen($pwd) > 0) {
                     return $pwd;
                 }
@@ -170,7 +170,7 @@ abstract class Base extends Command
             $password = $helper->ask(
                 $input,
                 $output instanceof ConsoleOutputInterface ? $output->getErrorOutput() : $output,
-                $question
+                $question,
             );
         }
 
