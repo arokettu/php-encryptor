@@ -1,37 +1,45 @@
 # Changelog
 
-## 1.1.5
+## 1.x
+
+### 1.2.0
+
+*Aug 26, 2025*
+
+* Dropped compatibility with PHP below 8.2 and old libraries.
+
+### 1.1.5
 
 *Apr 4, 2024*
 
 * Implement reproducible builds
 
-## 1.1.4
+### 1.1.4
 
 *Oct 22, 2023*
 
 * Symfony 7.x is now allowed
 * Composer 2.2+ is now required
 
-## 1.1.3
+### 1.1.3
 
 *Dec 13, 2022*
 
 * sandfoxme/bencode -> arokettu/bencode
 
-## 1.1.2
+### 1.1.2
 
 *Nov 6, 2021*
 
 * Symfony 6.x is now allowed
 
-## 1.1.1
+### 1.1.1
 
 *Sep 25, 2021*
 
 * bencode 3.x is now allowed
 
-## 1.1.0
+### 1.1.0
 
 *Mar 15, 2021*
 
@@ -39,7 +47,7 @@
 * Composer 2.x is now required to build CLI version
 * Switched to bencode stream API internally
 
-## 1.0.3
+### 1.0.3
 
 *Jul 21, 2020*
 
@@ -53,19 +61,19 @@ As composer package:
 * Allow sandfoxme/bencode v2
 * Limit upper PHP version
 
-## 1.0.2
+### 1.0.2
 
 *Jan 03, 2020*
 
 * Allow Symfony 5.0
 
-## 1.0.1
+### 1.0.1
 
 *Aug 23, 2019*
 
 * Fixed installation with composer
 
-## 1.0.0
+### 1.0.0
 
 *Aug 23, 2019*
 
