@@ -2,6 +2,12 @@
 
 ## 1.x
 
+### 1.2.1
+
+*Aug 26, 2025*
+
+* Removed useless dependency on PHP 8.0 polyfill
+
 ### 1.2.0
 
 *Aug 26, 2025*
