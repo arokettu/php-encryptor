@@ -8,7 +8,7 @@ use RuntimeException;
 
 final class Key
 {
-    private $key;
+    private string $key;
 
     public function __construct(string $key)
     {

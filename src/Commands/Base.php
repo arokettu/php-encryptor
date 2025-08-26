@@ -19,7 +19,7 @@ abstract class Base extends Command
 {
     protected const EXT = '.encrypted';
 
-    protected $stdin = false;
+    protected bool $stdin = false;
 
     protected function configureOptions(): void
     {

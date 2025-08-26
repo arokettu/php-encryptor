@@ -6,14 +6,13 @@ namespace Arokettu\Encryptor\Algo\V1;
 
 use Arokettu\Encryptor\Secret\Key;
 use Arokettu\Encryptor\Secret\Password;
+use RuntimeException;
+use SodiumException;
 
 final class Decrypt
 {
     /**
-     * @param array $container
-     * @param Key|Password $secret
-     * @return string
-     * @throws \SodiumException
+     * @throws SodiumException
      */
     public function decryptContainer(array $container, Key|Password $secret): string
     {
@@ -21,7 +20,7 @@ final class Decrypt
 
         if ($secret instanceof Password) {
             if (!isset($container['salt'])) {
-                throw new \RuntimeException('No salt in the container: cannot decrypt with password');
+                throw new RuntimeException('No salt in the container: cannot decrypt with password');
             }
 
             $secret->setSalt($container['salt']);
@@ -37,7 +36,7 @@ final class Decrypt
         sodium_memzero($key);
 
         if ($decrypted === false) {
-            throw new \RuntimeException('Decryption failed');
+            throw new RuntimeException('Decryption failed');
         }
 
         return $decrypted;
@@ -45,6 +44,6 @@ final class Decrypt
 
     private function throw(string $message): string
     {
-        throw new \RuntimeException($message);
+        throw new RuntimeException($message);
     }
 }

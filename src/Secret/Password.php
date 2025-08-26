@@ -18,10 +18,10 @@ final class Password
     protected const ALG_V1 = SODIUM_CRYPTO_PWHASH_ALG_ARGON2I13;
     protected const ALG_V2 = SODIUM_CRYPTO_PWHASH_ALG_ARGON2ID13;
 
-    private $password;
-    private $salt;
-    private $opslimit;
-    private $memlimit;
+    private string $password;
+    private string $salt;
+    private int $opslimit;
+    private int $memlimit;
 
     public function __construct(string $password)
     {
@@ -73,7 +73,7 @@ final class Password
 
     public function getOpslimit(): int
     {
-        if ($this->opslimit === null) {
+        if (!isset($this->opslimit)) {
             throw new LogicException('Ops Limit was not set');
         }
 
@@ -82,7 +82,7 @@ final class Password
 
     public function getMemlimit(): int
     {
-        if ($this->memlimit === null) {
+        if (!isset($this->memlimit)) {
             throw new LogicException('Mem Limit was not set');
         }
 
@@ -91,7 +91,7 @@ final class Password
 
     private function getKey(int $alg): string
     {
-        if ($this->salt === null) {
+        if (!isset($this->salt)) {
             throw new LogicException('Cannot produce key without salt');
         }
 

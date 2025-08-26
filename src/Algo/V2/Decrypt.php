@@ -8,6 +8,8 @@ use Arokettu\Bencode\Bencode;
 use Arokettu\Encryptor\Algo\V1\Decrypt as DecryptV1;
 use Arokettu\Encryptor\Secret\Key;
 use Arokettu\Encryptor\Secret\Password;
+use RuntimeException;
+use SodiumException;
 
 final class Decrypt
 {
@@ -16,7 +18,7 @@ final class Decrypt
     /**
      * @param resource $input
      * @param resource $output
-     * @param Key|Password $secret
+     * @throws SodiumException
      */
     public function decrypt($input, $output, Key|Password $secret): void
     {
@@ -29,12 +31,12 @@ final class Decrypt
      * @param array $container
      * @param Key|Password $secret
      * @return string
-     * @throws \SodiumException
+     * @throws SodiumException
      */
     public function decryptContainer(array $container, Key|Password $secret): string
     {
         if ($container['_a'] !== 'sfenc') {
-            throw new \RuntimeException('File header is invalid');
+            throw new RuntimeException('File header is invalid');
         }
 
         if ($container['_v'] !== self::VERSION) {
@@ -44,13 +46,13 @@ final class Decrypt
                     return (new DecryptV1())->decryptContainer($container, $secret);
 
                 default:
-                    throw new \RuntimeException('File version is unsupported');
+                    throw new RuntimeException('File version is unsupported');
             }
         }
 
         if ($secret instanceof Password) {
             if (!isset($container['salt'])) {
-                throw new \RuntimeException('No salt in the container: cannot decrypt with password');
+                throw new RuntimeException('No salt in the container: cannot decrypt with password');
             }
 
             $secret->setSalt($container['salt']);
@@ -66,7 +68,7 @@ final class Decrypt
         sodium_memzero($key);
 
         if ($decrypted === false) {
-            throw new \RuntimeException('Decryption failed');
+            throw new RuntimeException('Decryption failed');
         }
 
         return $decrypted;
@@ -74,6 +76,6 @@ final class Decrypt
 
     private function throw(string $message): string
     {
-        throw new \RuntimeException($message);
+        throw new RuntimeException($message);
     }
 }

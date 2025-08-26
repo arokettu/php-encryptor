@@ -7,6 +7,8 @@ namespace Arokettu\Encryptor\Algo\V2;
 use Arokettu\Bencode\Bencode;
 use Arokettu\Encryptor\Secret\Key;
 use Arokettu\Encryptor\Secret\Password;
+use Random\RandomException;
+use SodiumException;
 
 final class Encrypt
 {
@@ -15,8 +17,7 @@ final class Encrypt
     /**
      * @param resource $input
      * @param resource $output
-     * @param Key|Password $secret
-     * @throws \Exception
+     * @throws SodiumException|RandomException
      */
     public function encrypt($input, $output, Key|Password $secret): void
     {
@@ -44,11 +45,17 @@ final class Encrypt
         Bencode::encodeToStream($container, $output);
     }
 
+    /**
+     * @throws RandomException
+     */
     private function getSalt(): string
     {
         return random_bytes(SODIUM_CRYPTO_PWHASH_SALTBYTES);
     }
 
+    /**
+     * @throws RandomException
+     */
     private function getNonce(): string
     {
         return random_bytes(SODIUM_CRYPTO_SECRETBOX_NONCEBYTES);
