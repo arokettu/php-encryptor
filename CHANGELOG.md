@@ -2,6 +2,13 @@
 
 ## 1.x
 
+### 1.2.2
+
+*Aug 31, 2025*
+
+* Delayed creation of the output file.
+  This avoids for example creation of an empty file on failed password check.
+
 ### 1.2.1
 
 *Aug 26, 2025*
