@@ -22,7 +22,7 @@ final class DecryptV1Test extends TestCase
 
         $decryptedStream = $this->getTempStream();
         $decrypt->decrypt($this->getTempStream($this->getEncrypted_V1()), $decryptedStream, $secret);
-        $decrypted = $this->readTempStream($decryptedStream);
+        $decrypted = $this->readTempStream($decryptedStream());
 
         $this->assertEquals($this->getDecrypted(), $decrypted);
     }
@@ -36,7 +36,7 @@ final class DecryptV1Test extends TestCase
 
         $decryptedStream = $this->getTempStream();
         $decrypt->decrypt($this->getTempStream($this->getEncrypted_V1()), $decryptedStream, $secret);
-        $decrypted = $this->readTempStream($decryptedStream);
+        $decrypted = $this->readTempStream($decryptedStream());
 
         $this->assertEquals($this->getDecrypted(), $decrypted);
     }

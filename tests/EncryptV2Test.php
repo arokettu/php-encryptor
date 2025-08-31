@@ -30,11 +30,11 @@ final class EncryptV2Test extends TestCase
             $encryptedStream = $this->getTempStream();
 
             $encryptor->encrypt($this->getTempStream($decrypted), $encryptedStream, $secret);
-            $encrypted = $this->readTempStream($encryptedStream);
+            $encrypted = $this->readTempStream($encryptedStream());
 
             $decrypted2Stream = $this->getTempStream();
             $decryptor->decrypt($this->getTempStream($encrypted), $decrypted2Stream, $secret);
-            $decrypted2 = $this->readTempStream($decrypted2Stream);
+            $decrypted2 = $this->readTempStream($decrypted2Stream());
 
             $this->assertEquals($decrypted, $decrypted2);
         }
@@ -52,11 +52,11 @@ final class EncryptV2Test extends TestCase
 
         $encryptedStream = $this->getTempStream();
         $encryptor->encrypt($this->getTempStream($decrypted), $encryptedStream, $secret);
-        $encrypted = $this->readTempStream($encryptedStream);
+        $encrypted = $this->readTempStream($encryptedStream());
 
         $decrypted2Stream = $this->getTempStream();
         $decryptor->decrypt($this->getTempStream($encrypted), $decrypted2Stream, $secret);
-        $decrypted2 = $this->readTempStream($decrypted2Stream);
+        $decrypted2 = $this->readTempStream($decrypted2Stream());
 
         $this->assertEquals($decrypted, $decrypted2);
     }

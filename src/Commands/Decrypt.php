@@ -20,8 +20,8 @@ final class Decrypt extends Base
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $inputFile  = $this->getInputFile($input);
-        $outputFile = $this->getOutputFile($input);
+        $inputFile  = fn () => $this->getInputFile($input);
+        $outputFile = fn () => $this->getOutputFile($input);
         $secret     = $this->getSecret($input, $output);
 
         $dec = new V2\Decrypt();

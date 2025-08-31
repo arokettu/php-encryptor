@@ -15,11 +15,11 @@ final class Encrypt
     public const VERSION = 2;
 
     /**
-     * @param resource $input
-     * @param resource $output
+     * @param callable(): resource $input
+     * @param callable(): resource $output
      * @throws SodiumException|RandomException
      */
-    public function encrypt($input, $output, Key|Password $secret): void
+    public function encrypt(callable $input, callable $output, Key|Password $secret): void
     {
         $container = [
             '_a' => 'sfenc',
@@ -39,10 +39,10 @@ final class Encrypt
         $container['nonce'] = $nonce;
 
         $key = $secret->getKeyV2();
-        $container['payload'] = sodium_crypto_secretbox(stream_get_contents($input), $nonce, $key);
+        $container['payload'] = sodium_crypto_secretbox(stream_get_contents($input()), $nonce, $key);
         sodium_memzero($key);
 
-        Bencode::encodeToStream($container, $output);
+        Bencode::encodeToStream($container, $output());
     }
 
     /**

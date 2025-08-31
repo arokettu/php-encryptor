@@ -16,15 +16,16 @@ final class Decrypt
     public const VERSION = 2;
 
     /**
-     * @param resource $input
-     * @param resource $output
+     * @param callable(): resource $input
+     * @param callable(): resource $output
      * @throws SodiumException
      */
-    public function decrypt($input, $output, Key|Password $secret): void
+    public function decrypt(callable $input, callable $output, Key|Password $secret): void
     {
-        $container = (array)Bencode::decodeStream($input);
+        $container = (array)Bencode::decodeStream($input());
 
-        fwrite($output, $this->decryptContainer($container, $secret));
+        $decrypted = $this->decryptContainer($container, $secret);
+        fwrite($output(), $decrypted);
     }
 
     /**
