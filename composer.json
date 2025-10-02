@@ -54,7 +54,7 @@
     },
     "require-dev": {
         "phpunit/phpunit": "^11.5.34",
-        "sandfox.dev/code-standard": "^1.2025.08.01",
+        "sandfox.dev/code-standard": "^1.2025.09.17",
         "squizlabs/php_codesniffer": "*"
     }
 }
