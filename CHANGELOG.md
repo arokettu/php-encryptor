@@ -2,6 +2,12 @@
 
 ## 1.x
 
+### 1.2.3
+
+*Oct 29, 2025*
+
+* Symfony 8 is now allowed
+
 ### 1.2.2
 
 *Aug 31, 2025*
