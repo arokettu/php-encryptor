@@ -15,9 +15,11 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 final class Decrypt extends Base
 {
+    public const NAME = 'decrypt';
+
     protected function configure(): void
     {
-        $this->setName('decrypt');
+        $this->setName(self::NAME);
         $this->setDescription('Decrypts a file');
 
         $this->configureOptions();

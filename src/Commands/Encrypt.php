@@ -18,9 +18,11 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 final class Encrypt extends Base
 {
+    public const NAME = 'encrypt';
+
     protected function configure(): void
     {
-        $this->setName('encrypt');
+        $this->setName(self::NAME);
         $this->setDescription('Encrypts a file');
 
         $this->configureOptions();
